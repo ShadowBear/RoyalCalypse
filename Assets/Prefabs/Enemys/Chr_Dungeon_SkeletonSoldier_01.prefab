@@ -2097,7 +2097,9 @@ GameObject:
   - component: {fileID: 6508917581569073315}
   - component: {fileID: 6508917581569073313}
   - component: {fileID: 6508917581569073312}
-  - component: {fileID: 6508917581569073318}
+  - component: {fileID: 1160391989}
+  - component: {fileID: 1160391990}
+  - component: {fileID: 1160391991}
   m_Layer: 9
   m_Name: Chr_Dungeon_SkeletonSoldier_01
   m_TagString: Enemy
@@ -2197,7 +2199,23 @@ NavMeshAgent:
   m_BaseOffset: 0
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
---- !u!114 &6508917581569073318
+--- !u!208 &1160391989
+NavMeshObstacle:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6508917581569073314}
+  m_Enabled: 0
+  serializedVersion: 3
+  m_Shape: 1
+  m_Extents: {x: 0.5, y: 1, z: 0.5}
+  m_MoveThreshold: 0.1
+  m_Carve: 0
+  m_CarveOnlyStationary: 1
+  m_Center: {x: 0, y: 1, z: 0}
+  m_TimeToStationary: 0.5
+--- !u!114 &1160391990
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -2206,12 +2224,44 @@ MonoBehaviour:
   m_GameObject: {fileID: 6508917581569073314}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 69ce5ea6fa102774ba1b2ca6c92b6aef, type: 3}
+  m_Script: {fileID: 11500000, guid: 9297e1f8a419ccf4da66050c126aa5b0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  followDistance: 8
-  meleeAttackDistance: 3
+  alliesMask:
+    serializedVersion: 2
+    m_Bits: 512
+  helpRadius: 10
+  patrolPointParent: {fileID: 0}
+  patrolPoints: []
+  NonPatrolGuard: 0
+  guardingTime: 0
+  maxGuardingTime: 5
+  minGuardingTime: 3
   alive: 1
+  currentState: 0
+  meleeAttackDistance: 3
+--- !u!114 &1160391991
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6508917581569073314}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b239c8f077fbb9e44845e5a03f24a8a5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  viewRadius: 5.27
+  viewAngle: 115
+  targetMask:
+    serializedVersion: 2
+    m_Bits: 1024
+  obstacleMask:
+    serializedVersion: 2
+    m_Bits: 2048
+  visibleTargets: []
+  visible: 0
 --- !u!1 &6508918368463249848
 GameObject:
   m_ObjectHideFlags: 0

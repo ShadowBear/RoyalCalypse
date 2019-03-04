@@ -26,12 +26,15 @@ public class Player : MonoBehaviour
     [SerializeField] private GameObject secondWeapon;
     [SerializeField] private Image firstWeaponImage;
     [SerializeField] private Image secondWeaponImage;
-    
-    void Start()
+
+    private void Awake()
     {
         if (player == null) player = this;
         else if (player != this) Destroy(gameObject);
+    }
 
+    void Start()
+    {
         playerRigidbody = GetComponent<Rigidbody>();
         anim = GetComponent<Animator>();
         arming = false;

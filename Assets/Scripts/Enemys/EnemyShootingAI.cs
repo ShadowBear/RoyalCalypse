@@ -4,9 +4,16 @@ using UnityEngine;
 
 public class EnemyShootingAI : EnemyAI
 {
+    [Range(7,25)]
     [SerializeField] private float shootingDistance;
+    [SerializeField] private float shootingHysterese = 3f;
     [SerializeField] private Transform gunPoint;
     [SerializeField] private bool visible = false;
+
+    [SerializeField] private bool followPlayer = false;
+    [SerializeField] private float waitBeforeResetTime = 5f;
+    [SerializeField] private bool waiting = false;
+
     private Vector3 playerPos;
     private Weapon equipedWeapon;
 
@@ -15,47 +22,80 @@ public class EnemyShootingAI : EnemyAI
         base.Start();
         equipedWeapon = GetComponentInChildren<Weapon>();
         playerPos = player.transform.GetChild(0).transform.position;
-    }
-
-    protected override void Update()
-    {
-        if (!alive) return;
-        float distanceToPlayer = Vector3.Distance(transform.position, player.transform.position);
-        if (distanceToPlayer < followDistance)
-        {
-            transform.LookAt(player.transform.position);
-            RaycastHit hit;
-
-            if (Physics.SphereCast(gunPoint.forward, 1, playerPos, out hit, shootingDistance))
-            {
-                if (hit.collider.CompareTag("Player"))visible = true;          
-            }
-            else visible = false;
-            Debug.DrawRay(gunPoint.forward, playerPos, Color.red);
-            if (distanceToPlayer > shootingDistance || !visible)
-            {
-                navMeshAgent.isStopped = false;
-                navMeshAgent.destination = player.transform.position;
-            }
-            else
-            {
-                navMeshAgent.isStopped = true;
-                if (equipedWeapon.GetAttackStatus()) StartCoroutine(equipedWeapon.EnemyShot(gunPoint));
-            }
-            Animation();
-        }
-        else
-        {
-            anim.SetFloat("Speed", 0);
-            navMeshAgent.isStopped = true;
-        }
-    }
-    
+    }    
 
     protected override void Animation()
     {
         if (navMeshAgent.velocity != Vector3.zero) anim.SetFloat("Speed", 1);
         else anim.SetFloat("Speed", 0);
-        anim.SetBool("Attack", equipedWeapon.GetAttackStatus());
+        if(currentState == EnemyState.Attack) anim.SetBool("Attack", true);
+        else anim.SetBool("Attack", false);
     }
+
+    protected override void Fight()
+    {
+        RotateToPlayer();
+        if (followUpdater) StartCoroutine(UpdatePlayerPos());
+        if (navMeshAgent.remainingDistance > shootingDistance - shootingHysterese) currentState = EnemyState.Follow;
+        else currentState = EnemyState.Attack;
+    }
+
+    protected override void Attack()
+    {
+        navMeshAgent.isStopped = true;
+
+        ///*******************************/
+        //navMeshAgent.enabled = false;
+        //navMeshObstacle.enabled = true;
+        ///*******************************/
+
+        RotateToPlayer();
+        if (navMeshAgent.remainingDistance < shootingDistance)
+        {
+            if (equipedWeapon.GetAttackStatus()) StartCoroutine(equipedWeapon.EnemyShot(gunPoint));
+        }            
+        if (followUpdater) StartCoroutine(UpdatePlayerPos());
+        //Debug.Log("Remaining Distance before Attack: " + navMeshAgent.remainingDistance);
+        if (navMeshAgent.remainingDistance > shootingDistance && canAttack) currentState = EnemyState.Follow;
+    }
+
+    protected override void Follow()
+    {
+        ///*******************************/
+        //navMeshAgent.enabled = true;
+        //navMeshObstacle.enabled = false;
+        ///*******************************/
+
+        RotateToPlayer();
+
+        if (!fieldOfView.GetVisible())
+        {
+            if (followPlayer)
+            {
+                lastSeenPosition = player.transform.position;
+                currentState = EnemyState.Search;
+                return;
+            }
+            else
+            {
+                if(!waiting) StartCoroutine(WaitBeforeReturnToNormal());
+                navMeshAgent.isStopped = true;
+                return;
+            }
+            
+        }
+        navMeshAgent.isStopped = false;
+        if (followUpdater) StartCoroutine(UpdatePlayerPos());
+        if (navMeshAgent.remainingDistance < shootingDistance - shootingHysterese) currentState = EnemyState.Attack;
+    }
+
+    IEnumerator WaitBeforeReturnToNormal()
+    {
+        waiting = true;
+        yield return new WaitForSeconds(waitBeforeResetTime);
+        currentState = EnemyState.Patrol;
+        waiting = false;
+        yield return null;
+    }
+
 }
