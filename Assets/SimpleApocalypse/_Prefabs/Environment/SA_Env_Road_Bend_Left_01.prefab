@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 435210}
   - component: {fileID: 3355178}
   - component: {fileID: 2376382}
+  - component: {fileID: 3882213032588042976}
   m_Layer: 0
   m_Name: SA_Env_Road_Bend_Left_01
   m_TagString: Untagged
@@ -77,3 +78,17 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!64 &3882213032588042976
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 135830}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Convex: 0
+  m_CookingOptions: 14
+  m_Mesh: {fileID: 4300000, guid: ee1f0c613d9004d4ba64c7b09e68ca52, type: 3}

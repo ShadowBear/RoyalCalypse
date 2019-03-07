@@ -88,6 +88,7 @@ GameObject:
   - component: {fileID: 415498}
   - component: {fileID: 3388646}
   - component: {fileID: 2379590}
+  - component: {fileID: 9090343663813071791}
   m_Layer: 0
   m_Name: SA_Veh_MonsterTruck
   m_TagString: Untagged
@@ -159,6 +160,20 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!64 &9090343663813071791
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 108358}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Convex: 0
+  m_CookingOptions: 14
+  m_Mesh: {fileID: 4300000, guid: d3d2560a7b58f2d49acc76b579334f17, type: 3}
 --- !u!1 &153980
 GameObject:
   m_ObjectHideFlags: 0

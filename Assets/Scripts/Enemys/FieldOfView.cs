@@ -33,7 +33,7 @@ public class FieldOfView : MonoBehaviour
     {
         visibleTargets.Clear();
         Collider[] targetsInViewRadius = Physics.OverlapSphere(transform.position, viewRadius, targetMask);
-        //Debug.Log("Gegner in Radius: " + targetsInViewRadius.Length);
+        //Debug.Log("Player in Radius: " + targetsInViewRadius.Length);
         for (int i = 0; i < targetsInViewRadius.Length; i++)
         {
             Transform target = targetsInViewRadius[i].transform;

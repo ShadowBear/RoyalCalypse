@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 448146}
   - component: {fileID: 3309258}
   - component: {fileID: 2325124}
+  - component: {fileID: 8505405382001831739}
   m_Layer: 0
   m_Name: SA_Veh_Caravan_Damaged_02
   m_TagString: Untagged
@@ -77,3 +78,17 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!64 &8505405382001831739
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 168786}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Convex: 0
+  m_CookingOptions: 14
+  m_Mesh: {fileID: 4300000, guid: da3f88713e8487c449fb363cea81a874, type: 3}

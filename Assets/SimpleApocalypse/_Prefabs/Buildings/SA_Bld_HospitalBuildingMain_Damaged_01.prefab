@@ -88,6 +88,7 @@ GameObject:
   - component: {fileID: 405250}
   - component: {fileID: 3358782}
   - component: {fileID: 2353968}
+  - component: {fileID: 5574604427633367754}
   m_Layer: 0
   m_Name: SA_Bld_HospitalBuildingMain_Damaged_01
   m_TagString: Untagged
@@ -156,6 +157,20 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!64 &5574604427633367754
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 134498}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Convex: 0
+  m_CookingOptions: 14
+  m_Mesh: {fileID: 4300000, guid: 2d707cb7ad733314b8c9d90377cefe8e, type: 3}
 --- !u!1 &178244
 GameObject:
   m_ObjectHideFlags: 0

@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 475628}
   - component: {fileID: 3327294}
   - component: {fileID: 2322490}
+  - component: {fileID: 7995656080547118705}
   m_Layer: 0
   m_Name: SA_Env_Road_StraightLarge_01
   m_TagString: Untagged
@@ -77,3 +78,17 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!64 &7995656080547118705
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 109392}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Convex: 0
+  m_CookingOptions: 14
+  m_Mesh: {fileID: 4300000, guid: fc45cef01b5b9cd4d9a324b27cc37a48, type: 3}

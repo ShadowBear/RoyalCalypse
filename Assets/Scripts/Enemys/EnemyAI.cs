@@ -11,15 +11,14 @@ public abstract class EnemyAI : MonoBehaviour
     [SerializeField] protected float helpRadius;
 
     protected NavMeshAgent navMeshAgent;
-    protected NavMeshObstacle navMeshObstacle;
 
     [SerializeField] GameObject patrolPointParent;
     [SerializeField]protected Transform[] patrolPoints;
     protected int currentPatrolPoint;
-    protected int nextPatrolPoint;
+    protected int lastPatrolPoint;
 
     [SerializeField] protected bool NonPatrolGuard;
-    private static Vector3 NonPatrolGuardingPoint;
+    [SerializeField] private Vector3 NonPatrolGuardingPoint;
     private Quaternion startRotation;
 
     [SerializeField] protected float guardingTime;
@@ -50,9 +49,6 @@ public abstract class EnemyAI : MonoBehaviour
         player = Player.player.gameObject;
         navMeshAgent = GetComponent<NavMeshAgent>();
 
-        navMeshObstacle = GetComponent<NavMeshObstacle>();
-        navMeshObstacle.enabled = false;
-
         anim = GetComponent<Animator>();
         fieldOfView = GetComponent<FieldOfView>();
         if (!NonPatrolGuard && patrolPointParent)
@@ -60,9 +56,9 @@ public abstract class EnemyAI : MonoBehaviour
             patrolPoints = patrolPointParent.GetComponentsInChildren<Transform>();
             if (navMeshAgent.destination != patrolPoints[0].position)
             {
-                Debug.Log("InitDestination");
+                //Debug.Log("InitDestination");
                 currentPatrolPoint = 0;
-                nextPatrolPoint = (currentPatrolPoint + 1) % patrolPoints.Length;
+                lastPatrolPoint = 0;
                 navMeshAgent.SetDestination(patrolPoints[currentPatrolPoint].position);
             }
         }
@@ -119,15 +115,15 @@ public abstract class EnemyAI : MonoBehaviour
     protected virtual void Patrol()
     {
         navMeshAgent.isStopped = false;
-        if (!NonPatrolGuard || patrolPointParent != null)
+        if (!NonPatrolGuard && patrolPointParent != null)
         {
             if (navMeshAgent.remainingDistance < 0.5f)
             {
                 currentState = EnemyState.Guard;
                 guardingTime = Random.Range(minGuardingTime, maxGuardingTime);
                 //Debug.Log("GuardingTime: " + guardingTime);
-                currentPatrolPoint = nextPatrolPoint;
-                nextPatrolPoint = (currentPatrolPoint + 1) % patrolPoints.Length;
+                lastPatrolPoint = currentPatrolPoint;
+                currentPatrolPoint = (currentPatrolPoint + 1) % patrolPoints.Length;
                 navMeshAgent.SetDestination(patrolPoints[currentPatrolPoint].position);
             }
         }
@@ -145,10 +141,12 @@ public abstract class EnemyAI : MonoBehaviour
     protected virtual void Guard()
     {
         navMeshAgent.isStopped = true;
+
         if (!NonPatrolGuard)
         {
             if (currentState == EnemyState.Guard) guardingTime -= Time.deltaTime;
             if (guardingTime <= 0) currentState = EnemyState.Patrol;
+            transform.rotation = Quaternion.Slerp(transform.rotation, patrolPoints[currentPatrolPoint].rotation, Time.deltaTime * 5f);
         }
         else
         {
@@ -243,6 +241,17 @@ public abstract class EnemyAI : MonoBehaviour
 
     public virtual void SetHitbox(int activater)
     {
-        if (GetComponentInChildren<SwordTrigger>()) GetComponentInChildren<SwordTrigger>().SetHitbox(activater);
+        if (GetComponentInChildren<MeleeHitboxTrigger>()) GetComponentInChildren<MeleeHitboxTrigger>().SetHitbox(activater);
     }
+
+    public EnemyState GetCurrentState()
+    {
+        return currentState;
+    }
+
+    public void SetCurrentState(EnemyState state)
+    {
+        currentState = state;
+    }
+
 }

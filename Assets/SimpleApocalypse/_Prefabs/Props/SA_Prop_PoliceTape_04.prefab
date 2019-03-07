@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 490720}
   - component: {fileID: 3302752}
   - component: {fileID: 2342890}
+  - component: {fileID: 3085725327534146564}
   m_Layer: 0
   m_Name: SA_Prop_PoliceTape_04
   m_TagString: Untagged
@@ -77,3 +78,17 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!64 &3085725327534146564
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 148474}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Convex: 0
+  m_CookingOptions: 14
+  m_Mesh: {fileID: 4300000, guid: 15d01521ce70e874d809c4917253c2ac, type: 3}

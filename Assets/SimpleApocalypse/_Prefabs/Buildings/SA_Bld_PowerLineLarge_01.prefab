@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 479434}
   - component: {fileID: 3310888}
   - component: {fileID: 2396306}
+  - component: {fileID: 1142459917191262256}
   m_Layer: 0
   m_Name: SA_Bld_PowerLineLarge_01
   m_TagString: Untagged
@@ -77,3 +78,17 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!64 &1142459917191262256
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 177010}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Convex: 0
+  m_CookingOptions: 14
+  m_Mesh: {fileID: 4300000, guid: 989afb418f9da6d4cacdffd8ea4f2a9a, type: 3}

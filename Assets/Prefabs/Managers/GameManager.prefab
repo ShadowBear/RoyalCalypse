@@ -45,8 +45,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   scoreText: {fileID: 0}
+  killsText: {fileID: 0}
+  timeText: {fileID: 0}
+  time: 25
+  timeRun: 1
   damageText: {fileID: 4856104603292113220, guid: c1b0179e9ce6a5b47b4b79e389c956f7,
     type: 3}
+  winningText: {fileID: 0}
+  losingText: {fileID: 0}
+  goalsParent: {fileID: 0}
+  goals: []
+  goalsGameObject: []
+  finishGoal: {fileID: 0}
+  startingTransParent: {fileID: 0}
+  startingTransforms: []
+  playerStartPos: {x: 0, y: 0, z: 0}
 --- !u!114 &4274141013538850465
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -59,3 +72,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8e3894e6a344ba04898dd25a2e97903f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  distanceToGoalText: {fileID: 0}
+  menu: {fileID: 0}

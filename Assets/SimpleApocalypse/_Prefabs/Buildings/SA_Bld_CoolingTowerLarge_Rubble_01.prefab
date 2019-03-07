@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 471376}
   - component: {fileID: 3381012}
   - component: {fileID: 2315090}
+  - component: {fileID: 3554975037574176693}
   m_Layer: 0
   m_Name: SA_Bld_CoolingTowerLarge_Rubble_01
   m_TagString: Untagged
@@ -77,3 +78,17 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!64 &3554975037574176693
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 179754}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Convex: 0
+  m_CookingOptions: 14
+  m_Mesh: {fileID: 4300000, guid: 0e41e3c4c90fa3248a1267c6c251e098, type: 3}

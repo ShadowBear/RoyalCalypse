@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 419788}
   - component: {fileID: 3324916}
   - component: {fileID: 2322508}
+  - component: {fileID: 7288624468057352454}
   m_Layer: 0
   m_Name: SA_Prop_Mattress_01
   m_TagString: Untagged
@@ -77,3 +78,17 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!64 &7288624468057352454
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 182532}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Convex: 0
+  m_CookingOptions: 14
+  m_Mesh: {fileID: 4300000, guid: 9a9dc31f27715694d955e4e9221b76d1, type: 3}

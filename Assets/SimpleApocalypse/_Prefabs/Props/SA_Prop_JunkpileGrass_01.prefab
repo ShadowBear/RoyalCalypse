@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 419386}
   - component: {fileID: 3326670}
   - component: {fileID: 2363486}
+  - component: {fileID: 7918880856802704192}
   m_Layer: 0
   m_Name: SA_Prop_JunkpileGrass_01
   m_TagString: Untagged
@@ -77,3 +78,17 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!64 &7918880856802704192
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 108322}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Convex: 0
+  m_CookingOptions: 14
+  m_Mesh: {fileID: 4300000, guid: d3a41e2082b379c4a9538a8130f12a51, type: 3}

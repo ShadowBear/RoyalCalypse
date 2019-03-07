@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 402642}
   - component: {fileID: 3344476}
   - component: {fileID: 2392900}
+  - component: {fileID: 3048593485130675865}
   m_Layer: 0
   m_Name: SA_Prop_TreeDead_01
   m_TagString: Untagged
@@ -77,3 +78,17 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!64 &3048593485130675865
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 171772}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Convex: 0
+  m_CookingOptions: 14
+  m_Mesh: {fileID: 4300000, guid: b61366f6e2351584b9b342cb6a6736d7, type: 3}

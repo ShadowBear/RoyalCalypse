@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 480384}
   - component: {fileID: 3313082}
   - component: {fileID: 2300884}
+  - component: {fileID: 8737534813521390505}
   m_Layer: 0
   m_Name: SA_Prop_VendingMachine_01
   m_TagString: Untagged
@@ -77,3 +78,17 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!64 &8737534813521390505
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 100814}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Convex: 0
+  m_CookingOptions: 14
+  m_Mesh: {fileID: 4300000, guid: 051b5e945ecb5ae4f8bc5a3dff7be5f2, type: 3}

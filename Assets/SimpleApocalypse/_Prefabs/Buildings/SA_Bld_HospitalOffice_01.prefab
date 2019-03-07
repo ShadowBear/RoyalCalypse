@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 443370}
   - component: {fileID: 3376724}
   - component: {fileID: 2339850}
+  - component: {fileID: 7048151573334673913}
   m_Layer: 0
   m_Name: SA_Bld_HospitalOffice_01
   m_TagString: Untagged
@@ -77,3 +78,17 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!64 &7048151573334673913
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 106432}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Convex: 0
+  m_CookingOptions: 14
+  m_Mesh: {fileID: 4300000, guid: 832e22a8a94fa02489f332ac9dc377fb, type: 3}

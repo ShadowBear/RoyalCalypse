@@ -12,6 +12,7 @@ public class CollectWeapon : CollectItemTemplate
     protected override void CollectIt(Collider player)
     {
         player.GetComponent<Player>().SwapWeapon(weaponName);
-        Destroy(gameObject);
+        if (transform.parent != null) Destroy(transform.parent.gameObject);
+        else Destroy(gameObject);
     }
 }

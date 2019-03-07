@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 400122}
   - component: {fileID: 3342320}
   - component: {fileID: 2350464}
+  - component: {fileID: 4432309804156945765}
   m_Layer: 0
   m_Name: SA_Prop_CarRolled_03
   m_TagString: Untagged
@@ -77,3 +78,17 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!64 &4432309804156945765
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 112870}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Convex: 0
+  m_CookingOptions: 14
+  m_Mesh: {fileID: 4300000, guid: 604322d59ddd32048b4ad7ba2ac09c9b, type: 3}

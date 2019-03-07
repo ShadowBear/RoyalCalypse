@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 434144}
   - component: {fileID: 3386090}
   - component: {fileID: 2320140}
+  - component: {fileID: 9093958836712687882}
   m_Layer: 0
   m_Name: SA_Item_Ammo_GrenadeLauncher
   m_TagString: Untagged
@@ -77,3 +78,17 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!64 &9093958836712687882
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 190316}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Convex: 0
+  m_CookingOptions: 14
+  m_Mesh: {fileID: 4300000, guid: 535b1d1f78e6a464399160f5942c0926, type: 3}

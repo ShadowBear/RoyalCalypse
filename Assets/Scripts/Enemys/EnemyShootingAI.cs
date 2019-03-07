@@ -44,11 +44,6 @@ public class EnemyShootingAI : EnemyAI
     {
         navMeshAgent.isStopped = true;
 
-        ///*******************************/
-        //navMeshAgent.enabled = false;
-        //navMeshObstacle.enabled = true;
-        ///*******************************/
-
         RotateToPlayer();
         if (navMeshAgent.remainingDistance < shootingDistance)
         {
@@ -61,11 +56,6 @@ public class EnemyShootingAI : EnemyAI
 
     protected override void Follow()
     {
-        ///*******************************/
-        //navMeshAgent.enabled = true;
-        //navMeshObstacle.enabled = false;
-        ///*******************************/
-
         RotateToPlayer();
 
         if (!fieldOfView.GetVisible())

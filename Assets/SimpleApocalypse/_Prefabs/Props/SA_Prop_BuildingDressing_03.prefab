@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 476694}
   - component: {fileID: 3370494}
   - component: {fileID: 2370818}
+  - component: {fileID: 5177727527516979873}
   m_Layer: 0
   m_Name: SA_Prop_BuildingDressing_03
   m_TagString: Untagged
@@ -77,3 +78,17 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!64 &5177727527516979873
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 194090}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Convex: 0
+  m_CookingOptions: 14
+  m_Mesh: {fileID: 4300000, guid: befa97a26ea8c1c4eb8f0371e52df0e8, type: 3}

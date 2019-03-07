@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 464670}
   - component: {fileID: 3399432}
   - component: {fileID: 2392792}
+  - component: {fileID: 5188984528854973559}
   m_Layer: 0
   m_Name: SA_Prop_Litter_08
   m_TagString: Untagged
@@ -77,3 +78,17 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!64 &5188984528854973559
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 165018}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Convex: 0
+  m_CookingOptions: 14
+  m_Mesh: {fileID: 4300002, guid: 89b35c6271ad9104f9134212ea058283, type: 3}

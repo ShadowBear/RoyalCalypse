@@ -9,18 +9,16 @@ namespace PolygonArsenal
         public GameObject projectileParticle;
         public GameObject muzzleParticle;
         public GameObject[] trailParticles;
-        private float lifeTimeBullet = .7f;
+        protected float lifeTimeBullet = .7f;
         [Header("Adjust if not using Sphere Collider")]
         public float colliderRadius = 1f;
         [Range(0f, 1f)]
         public float collideOffset = 0.15f;
 
-        private int damage;
+        public int damage = 0;
 
-        void Start()
+        protected virtual void Start()
         {
-            //damage = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>().GetWeaponDamage();
-            damage = Player.player.gameObject.GetComponent<Player>().GetWeaponDamage();
             projectileParticle = Instantiate(projectileParticle, transform.position, transform.rotation) as GameObject;
             projectileParticle.transform.parent = transform;
             Destroy(gameObject, lifeTimeBullet);
@@ -31,7 +29,7 @@ namespace PolygonArsenal
             }
         }
 
-        void FixedUpdate()
+        protected virtual void FixedUpdate()
         {
             RaycastHit hit;
 
@@ -58,9 +56,11 @@ namespace PolygonArsenal
                 if (hit.transform.tag == "Destructible") // Projectile will destroy objects tagged as Destructible
                 {
                     Destroy(hit.transform.gameObject);
-                }else if(hit.transform.tag == "Enemy")
+                }else if(hit.transform.tag == "Enemy" || hit.transform.tag == "Player")
                 {
                     hit.transform.GetComponent<Health>().Damage(damage);
+                    //if(hit.transform.tag == "Enemy")Debug.Log("DamageFromPlayerWeapon: " + damage);
+                    //if(hit.transform.tag == "Player")Debug.Log("DamageFromEnemyWeapon: " + damage);
                 }
 
                 foreach (GameObject trail in trailParticles)

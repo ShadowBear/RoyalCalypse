@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 431306}
   - component: {fileID: 3370320}
   - component: {fileID: 2392742}
+  - component: {fileID: 6312486168944058551}
   m_Layer: 0
   m_Name: SA_Env_RoadGrate
   m_TagString: Untagged
@@ -77,3 +78,17 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!64 &6312486168944058551
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 196990}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Convex: 0
+  m_CookingOptions: 14
+  m_Mesh: {fileID: 4300000, guid: f7d6b9900165fd74ca95d489f10d874e, type: 3}

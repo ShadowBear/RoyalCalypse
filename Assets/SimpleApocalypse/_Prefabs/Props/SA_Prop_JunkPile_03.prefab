@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 479886}
   - component: {fileID: 3370954}
   - component: {fileID: 2350156}
+  - component: {fileID: 8867011183697608786}
   m_Layer: 0
   m_Name: SA_Prop_JunkPile_03
   m_TagString: Untagged
@@ -77,3 +78,17 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!64 &8867011183697608786
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 132234}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Convex: 0
+  m_CookingOptions: 14
+  m_Mesh: {fileID: 4300000, guid: 864d0673765ef644891c2026d19a2af3, type: 3}

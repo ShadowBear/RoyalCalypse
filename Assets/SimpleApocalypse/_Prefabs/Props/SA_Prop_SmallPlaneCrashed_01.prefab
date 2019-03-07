@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 497644}
   - component: {fileID: 3394830}
   - component: {fileID: 2335198}
+  - component: {fileID: 882121169097850123}
   m_Layer: 0
   m_Name: SA_Prop_SmallPlaneCrashed_01
   m_TagString: Untagged
@@ -77,3 +78,17 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!64 &882121169097850123
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 170542}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Convex: 0
+  m_CookingOptions: 14
+  m_Mesh: {fileID: 4300000, guid: f29377aab96121c48a29a100353b58f0, type: 3}

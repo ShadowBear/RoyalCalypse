@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 493050}
   - component: {fileID: 3365590}
   - component: {fileID: 2354150}
+  - component: {fileID: 3573803531947639870}
   m_Layer: 0
   m_Name: SA_Prop_Statue_Damaged_01
   m_TagString: Untagged
@@ -77,3 +78,17 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!64 &3573803531947639870
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 193480}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Convex: 0
+  m_CookingOptions: 14
+  m_Mesh: {fileID: 4300000, guid: c8133c55c94d7844284aa58d15fdb6ad, type: 3}

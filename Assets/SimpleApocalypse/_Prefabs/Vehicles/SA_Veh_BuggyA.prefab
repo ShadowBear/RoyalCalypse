@@ -88,6 +88,7 @@ GameObject:
   - component: {fileID: 459748}
   - component: {fileID: 3335218}
   - component: {fileID: 2366444}
+  - component: {fileID: 131596653589014449}
   m_Layer: 0
   m_Name: SA_Veh_BuggyA
   m_TagString: Untagged
@@ -158,6 +159,20 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!64 &131596653589014449
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 116194}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Convex: 0
+  m_CookingOptions: 14
+  m_Mesh: {fileID: 4300000, guid: 02edf08aeee6bd949ab5b84d6172d530, type: 3}
 --- !u!1 &121184
 GameObject:
   m_ObjectHideFlags: 0

@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 408882}
   - component: {fileID: 3381242}
   - component: {fileID: 2376526}
+  - component: {fileID: 9106707730259773874}
   m_Layer: 0
   m_Name: SA_Bld_TownHouseLarge_Clean_01
   m_TagString: Untagged
@@ -77,3 +78,17 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!64 &9106707730259773874
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 143152}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Convex: 0
+  m_CookingOptions: 14
+  m_Mesh: {fileID: 4300000, guid: f56b8f88aa1332443a770dd57ee5c27b, type: 3}

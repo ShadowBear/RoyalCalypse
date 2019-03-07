@@ -319,6 +319,7 @@ GameObject:
   - component: {fileID: 440616}
   - component: {fileID: 3343354}
   - component: {fileID: 2363100}
+  - component: {fileID: 5877240670776637906}
   m_Layer: 0
   m_Name: SA_Veh_BigUte
   m_TagString: Untagged
@@ -391,6 +392,20 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!64 &5877240670776637906
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 146538}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Convex: 0
+  m_CookingOptions: 14
+  m_Mesh: {fileID: 4300000, guid: 4ccce506a782aad4baeef88607354bce, type: 3}
 --- !u!1 &149606
 GameObject:
   m_ObjectHideFlags: 0

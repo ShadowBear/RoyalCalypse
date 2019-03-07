@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 497694}
   - component: {fileID: 3305242}
   - component: {fileID: 2301180}
+  - component: {fileID: 6293354920504214389}
   m_Layer: 0
   m_Name: SA_Prop_BurntBrown_Van_01
   m_TagString: Untagged
@@ -77,3 +78,17 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!64 &6293354920504214389
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 126116}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Convex: 0
+  m_CookingOptions: 14
+  m_Mesh: {fileID: 4300000, guid: 5c785faa46073044dbe9bac82f9bafc3, type: 3}

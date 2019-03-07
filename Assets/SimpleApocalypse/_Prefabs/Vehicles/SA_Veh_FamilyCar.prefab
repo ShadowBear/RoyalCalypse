@@ -165,6 +165,7 @@ GameObject:
   - component: {fileID: 442332}
   - component: {fileID: 3361684}
   - component: {fileID: 2388716}
+  - component: {fileID: 1964346390745330797}
   m_Layer: 0
   m_Name: SA_Veh_FamilyCar
   m_TagString: Untagged
@@ -236,6 +237,20 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!64 &1964346390745330797
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 180278}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Convex: 0
+  m_CookingOptions: 14
+  m_Mesh: {fileID: 4300000, guid: f52d42d0ed103bb479a5c34fa83253ce, type: 3}
 --- !u!1 &183748
 GameObject:
   m_ObjectHideFlags: 0

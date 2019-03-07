@@ -6,6 +6,12 @@ TagManager:
   tags:
   - Enemy
   - Canvas
+  - Goal
+  - EnemyAI
+  - Weapon
+  - Ammu
+  - Regeneration
+  - Item
   layers:
   - Default
   - TransparentFX
@@ -19,8 +25,8 @@ TagManager:
   - Enemy
   - Player
   - Obstacle
-  - 
-  - 
+  - MiniMapIcon
+  - EnemyAI
   - 
   - 
   - 

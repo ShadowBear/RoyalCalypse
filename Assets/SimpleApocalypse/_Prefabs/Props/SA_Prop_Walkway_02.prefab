@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 420040}
   - component: {fileID: 3311738}
   - component: {fileID: 2339698}
+  - component: {fileID: 2889221900473614359}
   m_Layer: 0
   m_Name: SA_Prop_Walkway_02
   m_TagString: Untagged
@@ -77,3 +78,17 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!64 &2889221900473614359
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 141836}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Convex: 0
+  m_CookingOptions: 14
+  m_Mesh: {fileID: 4300000, guid: bb126187e255c244f9e9d4aa61360004, type: 3}

@@ -88,6 +88,7 @@ GameObject:
   - component: {fileID: 433306}
   - component: {fileID: 3312800}
   - component: {fileID: 2308906}
+  - component: {fileID: 8351805476068173393}
   m_Layer: 0
   m_Name: SA_Bld_StoreSmall_Damaged_01
   m_TagString: Untagged
@@ -156,6 +157,20 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!64 &8351805476068173393
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 182220}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Convex: 0
+  m_CookingOptions: 14
+  m_Mesh: {fileID: 4300000, guid: 4b67c214b804be1468198de7ca29c53d, type: 3}
 --- !u!1 &185538
 GameObject:
   m_ObjectHideFlags: 0

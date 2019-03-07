@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 449178}
   - component: {fileID: 3388034}
   - component: {fileID: 2347484}
+  - component: {fileID: 6224016615441370146}
   m_Layer: 0
   m_Name: SA_Prop_BurntBlack_RV_01
   m_TagString: Untagged
@@ -77,3 +78,17 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!64 &6224016615441370146
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 130272}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Convex: 0
+  m_CookingOptions: 14
+  m_Mesh: {fileID: 4300000, guid: 94dda1108fe0a6947a0f1f508cdfa8cc, type: 3}

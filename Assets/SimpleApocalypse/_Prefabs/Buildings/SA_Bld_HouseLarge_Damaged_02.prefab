@@ -165,6 +165,7 @@ GameObject:
   - component: {fileID: 463198}
   - component: {fileID: 3399296}
   - component: {fileID: 2386850}
+  - component: {fileID: 2517092164751982512}
   m_Layer: 0
   m_Name: SA_Bld_HouseLarge_Damaged_02
   m_TagString: Untagged
@@ -181,7 +182,7 @@ Transform:
   m_GameObject: {fileID: 148144}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: -1, y: 1, z: 1}
   m_Children:
   - {fileID: 450862}
   - {fileID: 421078}
@@ -233,3 +234,17 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!64 &2517092164751982512
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 148144}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Convex: 0
+  m_CookingOptions: 14
+  m_Mesh: {fileID: 4300000, guid: 98acca1964a49aa43a862f9697f6c31a, type: 3}

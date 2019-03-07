@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 427218}
   - component: {fileID: 3332082}
   - component: {fileID: 2371708}
+  - component: {fileID: 6549529900711941309}
   m_Layer: 0
   m_Name: SA_Prop_BurntBody_01
   m_TagString: Untagged
@@ -77,3 +78,17 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!64 &6549529900711941309
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 164100}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Convex: 0
+  m_CookingOptions: 14
+  m_Mesh: {fileID: 4300000, guid: f2b56443c6aff654194189b4cafcb8cb, type: 3}

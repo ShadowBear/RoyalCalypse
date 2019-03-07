@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 405604}
   - component: {fileID: 3360538}
   - component: {fileID: 2397270}
+  - component: {fileID: 2377892909435329078}
   m_Layer: 0
   m_Name: SA_Prop_PlantFence_01
   m_TagString: Untagged
@@ -77,3 +78,17 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!64 &2377892909435329078
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 117822}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Convex: 0
+  m_CookingOptions: 14
+  m_Mesh: {fileID: 4300000, guid: e5a8d7cdfc85f4a4c99f43f804006dd4, type: 3}

@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 460658}
   - component: {fileID: 3324236}
   - component: {fileID: 2398208}
+  - component: {fileID: 3913694098992547055}
   m_Layer: 0
   m_Name: SA_Prop_Campseat_01
   m_TagString: Untagged
@@ -77,3 +78,17 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!64 &3913694098992547055
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 112292}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Convex: 0
+  m_CookingOptions: 14
+  m_Mesh: {fileID: 4300000, guid: 94d5049e57f5077479e8bf96b95833f1, type: 3}

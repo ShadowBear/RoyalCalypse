@@ -9,7 +9,11 @@ public class CollectAmmu : CollectItemTemplate
     protected override void CollectIt(Collider player)
     {
         bool reloaded = player.GetComponent<Player>().AddAmmu(weaponType);
-        if (reloaded) Destroy(gameObject);
+        if (reloaded)
+        {
+            if (transform.parent != null) Destroy(transform.parent.gameObject);
+            else Destroy(gameObject);
+        }
         else image.fillAmount = 0;
     }
 }

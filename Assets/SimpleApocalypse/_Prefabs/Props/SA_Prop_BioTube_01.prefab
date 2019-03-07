@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 458178}
   - component: {fileID: 3348156}
   - component: {fileID: 2302012}
+  - component: {fileID: 859990756966884972}
   m_Layer: 0
   m_Name: SA_Prop_BioTube_01
   m_TagString: Untagged
@@ -77,3 +78,17 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!64 &859990756966884972
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 119580}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Convex: 0
+  m_CookingOptions: 14
+  m_Mesh: {fileID: 4300000, guid: a30e8867fd3028d458688871278dc0e6, type: 3}

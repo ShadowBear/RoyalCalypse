@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 438832}
   - component: {fileID: 3386214}
   - component: {fileID: 2384510}
+  - component: {fileID: 7924723335243797736}
   m_Layer: 0
   m_Name: SA_Prop_Sleepingbag_Open_03
   m_TagString: Untagged
@@ -77,3 +78,17 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!64 &7924723335243797736
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 173598}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Convex: 0
+  m_CookingOptions: 14
+  m_Mesh: {fileID: 4300000, guid: 0dd84f834201a9745bd598e5efe1bea4, type: 3}

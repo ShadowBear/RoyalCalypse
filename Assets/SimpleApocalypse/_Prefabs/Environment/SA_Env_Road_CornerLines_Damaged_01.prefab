@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 419156}
   - component: {fileID: 3370886}
   - component: {fileID: 2396722}
+  - component: {fileID: 2783902181635513561}
   m_Layer: 0
   m_Name: SA_Env_Road_CornerLines_Damaged_01
   m_TagString: Untagged
@@ -77,3 +78,17 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!64 &2783902181635513561
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 159816}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Convex: 0
+  m_CookingOptions: 14
+  m_Mesh: {fileID: 4300000, guid: 180d8ee4a97d73b4daa1152de836f7d6, type: 3}

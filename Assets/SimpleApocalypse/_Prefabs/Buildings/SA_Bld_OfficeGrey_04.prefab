@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 476766}
   - component: {fileID: 3396920}
   - component: {fileID: 2334018}
+  - component: {fileID: 8413856034081214344}
   m_Layer: 0
   m_Name: SA_Bld_OfficeGrey_04
   m_TagString: Untagged
@@ -78,6 +79,20 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!64 &8413856034081214344
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 145384}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Convex: 0
+  m_CookingOptions: 14
+  m_Mesh: {fileID: 4300000, guid: b343ab44dadde784ea46cf045aa20e4a, type: 3}
 --- !u!1 &157388
 GameObject:
   m_ObjectHideFlags: 0

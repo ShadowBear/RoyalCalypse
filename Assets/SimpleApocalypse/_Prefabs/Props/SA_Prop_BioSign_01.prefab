@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 414748}
   - component: {fileID: 3341676}
   - component: {fileID: 2334590}
+  - component: {fileID: 6357405943496772986}
   m_Layer: 0
   m_Name: SA_Prop_BioSign_01
   m_TagString: Untagged
@@ -77,3 +78,17 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!64 &6357405943496772986
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 114234}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Convex: 0
+  m_CookingOptions: 14
+  m_Mesh: {fileID: 4300000, guid: cc6f399623e5cf341aace30e31622d0e, type: 3}

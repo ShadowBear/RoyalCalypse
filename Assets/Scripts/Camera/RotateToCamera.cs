@@ -5,8 +5,18 @@ using UnityEngine;
 public class RotateToCamera : MonoBehaviour
 {
     // Start is called before the first frame update
-    void Update()
+    private void Start()
     {
-        transform.LookAt(Camera.main.transform);
+        StartCoroutine(LookAtCamera());
+    }
+
+    IEnumerator LookAtCamera()
+    {
+        while (true)
+        {
+            transform.LookAt(Camera.main.transform);
+            yield return new WaitForSeconds(.034f);
+        }
+        
     }
 }

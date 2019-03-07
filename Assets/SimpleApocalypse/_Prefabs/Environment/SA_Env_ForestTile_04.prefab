@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 470378}
   - component: {fileID: 3305926}
   - component: {fileID: 2311822}
+  - component: {fileID: 7485061011349407286}
   m_Layer: 0
   m_Name: SA_Env_ForestTile_04
   m_TagString: Untagged
@@ -77,3 +78,17 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!64 &7485061011349407286
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 199614}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Convex: 0
+  m_CookingOptions: 14
+  m_Mesh: {fileID: 4300000, guid: 87cc3b2b3db0b6d4aa00bf48e80caf94, type: 3}

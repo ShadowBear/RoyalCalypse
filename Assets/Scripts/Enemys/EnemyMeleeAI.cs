@@ -11,10 +11,6 @@ public class EnemyMeleeAI : EnemyAI
     protected override void Attack()
     {
         navMeshAgent.isStopped = true;
-        ///*******************************/
-        //navMeshAgent.enabled = false;
-        //navMeshObstacle.enabled = true;
-        ///*******************************/
         RotateToPlayer();
         if (canAttack && navMeshAgent.remainingDistance < meleeAttackDistance) StartCoroutine(MeleeAttack());
         if (followUpdater) StartCoroutine(UpdatePlayerPos());
@@ -32,11 +28,6 @@ public class EnemyMeleeAI : EnemyAI
 
     protected override void Follow()
     {
-        ///*******************************/
-        //navMeshAgent.enabled = true;
-        //navMeshObstacle.enabled = false;
-        /*******************************/
-
         //Simple Rotation
         //transform.LookAt(player.transform.position);
 

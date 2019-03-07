@@ -5,6 +5,7 @@ using System.IO;
 using System;
 using UnityEngine.UI;
 
+
 public class Weapon : MonoBehaviour
 {
     public int damage;
@@ -63,6 +64,10 @@ public class Weapon : MonoBehaviour
         canAttack = false;
         ammuAmount--;
         GameObject projectile = Instantiate(bullet, gunPoint.position, Quaternion.identity);
+        if (projectile.GetComponent<PolygonArsenal.PolygonProjectileScript>())
+        {
+            projectile.GetComponent<PolygonArsenal.PolygonProjectileScript>().damage = GetWeaponDamage();
+        }
         projectile.GetComponent<Rigidbody>().AddForce(gunPoint.forward * projectileSpeed);
         UpdateAmmuGUI();
         yield return new WaitForSeconds(fireRate);
@@ -74,6 +79,10 @@ public class Weapon : MonoBehaviour
     {
         canAttack = false;
         GameObject projectile = Instantiate(bullet, gunTransform.position, Quaternion.identity);
+        if (projectile.GetComponent<PolygonArsenal.PolygonProjectileScript>())
+        {
+            projectile.GetComponent<PolygonArsenal.PolygonProjectileScript>().damage = GetWeaponDamage();
+        }
         projectile.GetComponent<Rigidbody>().AddForce(gunTransform.forward * projectileSpeed);
         yield return new WaitForSeconds(fireRate);
         canAttack = true;
@@ -130,6 +139,11 @@ public class Weapon : MonoBehaviour
             return true;
         }
         else return false;
+    }
+
+    public int GetWeaponDamage()
+    {
+        return (damage + UnityEngine.Random.Range(-damageVarianz, damageVarianz + 1));
     }
 
 }

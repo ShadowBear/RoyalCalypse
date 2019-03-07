@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 478822}
   - component: {fileID: 3350456}
   - component: {fileID: 2341360}
+  - component: {fileID: 9205799635373196847}
   m_Layer: 0
   m_Name: SA_Bld_TrailerRV_Damaged_01
   m_TagString: Untagged
@@ -77,3 +78,17 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!64 &9205799635373196847
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 147194}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Convex: 0
+  m_CookingOptions: 14
+  m_Mesh: {fileID: 4300000, guid: 67966b7ee3bd7da4aad72e60f6c0fabc, type: 3}

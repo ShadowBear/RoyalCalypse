@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 412060}
   - component: {fileID: 3353372}
   - component: {fileID: 2359714}
+  - component: {fileID: 2141646981003823949}
   m_Layer: 0
   m_Name: SA_Prop_BodyBag_01
   m_TagString: Untagged
@@ -78,6 +79,20 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!64 &2141646981003823949
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 115468}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Convex: 0
+  m_CookingOptions: 14
+  m_Mesh: {fileID: 4300000, guid: 43855a70588353f40982bb472c6102ea, type: 3}
 --- !u!1 &161244
 GameObject:
   m_ObjectHideFlags: 0

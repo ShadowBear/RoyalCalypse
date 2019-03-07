@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 492660}
   - component: {fileID: 3390248}
   - component: {fileID: 2317744}
+  - component: {fileID: 5395741871863987681}
   m_Layer: 0
   m_Name: SA_Prop_WaterContainerLow_01
   m_TagString: Untagged
@@ -77,3 +78,17 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!64 &5395741871863987681
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 192816}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Convex: 0
+  m_CookingOptions: 14
+  m_Mesh: {fileID: 4300000, guid: 1a38bc2b094d74e428f961c65f4ec6f0, type: 3}

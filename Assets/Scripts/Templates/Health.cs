@@ -37,6 +37,7 @@ public abstract class Health : MonoBehaviour
             } else shield -= dmg;
         }else health -= dmg;
         ShowDamage(dmg, transform);
+        Debug.Log("Schaden: " + dmg);
         UpdateFillamount();
 
         if (health <= 0) Die();
@@ -60,9 +61,11 @@ public abstract class Health : MonoBehaviour
         UpdateFillamount();
     }
 
-    public virtual void ShowDamage(int damage, Transform trans)
-    {
+    public virtual void ShowDamage(int damage, Transform trans) { }
 
+    public void LostGame()
+    {
+        Die();
     }
 
     protected abstract void Die();

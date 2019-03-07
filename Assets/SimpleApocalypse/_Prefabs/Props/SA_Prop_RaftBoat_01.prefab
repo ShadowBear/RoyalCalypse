@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 498800}
   - component: {fileID: 3350456}
   - component: {fileID: 2364278}
+  - component: {fileID: 744612502438961809}
   m_Layer: 0
   m_Name: SA_Prop_RaftBoat_01
   m_TagString: Untagged
@@ -77,3 +78,17 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!64 &744612502438961809
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 148316}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Convex: 0
+  m_CookingOptions: 14
+  m_Mesh: {fileID: 4300000, guid: 66253c2f8d9dd4341812dc37cd632219, type: 3}

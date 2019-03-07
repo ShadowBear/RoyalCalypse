@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 498572}
   - component: {fileID: 3302768}
   - component: {fileID: 2396868}
+  - component: {fileID: 4498299300980941684}
   m_Layer: 0
   m_Name: SA_Prop_SpikeSmall_01
   m_TagString: Untagged
@@ -77,3 +78,17 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!64 &4498299300980941684
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 130574}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Convex: 0
+  m_CookingOptions: 14
+  m_Mesh: {fileID: 4300000, guid: 96c5c356363ae174eaf2aabfc88ee6c1, type: 3}

@@ -7,7 +7,8 @@ public class PlayerHealth : Health
 {
     protected override void Die()
     {
-        GameManager.gameManager.ResetScore();
-        Start();
+        //GameManager.gameManager.ResetScore();
+        GameManager.gameManager.Lost();
+        //Start();
     }
 }

@@ -8,14 +8,14 @@ public abstract class CollectItemTemplate : MonoBehaviour
     protected Image image;
     public float collectTime;
 
-    void Start()
+    protected virtual void Start()
     {
         image = GetComponentInChildren<Image>();
         image.fillAmount = 0;
     }
 
     // Update is called once per frame
-    private void OnTriggerStay(Collider other)
+    protected virtual void OnTriggerStay(Collider other)
     {
         if (other.CompareTag("Player"))
         {
