@@ -12,8 +12,11 @@ public class GUIManager : MonoBehaviour
     private Vector3 playerPos;
     private Vector3 finishPos;
 
+    public bool lostOrWon = false;
+
     private void Start()
     {
+        lostOrWon = false;
         playerPos = Player.player.transform.position;
         finishPos = GameManager.gameManager.finishGoal.GetComponentInChildren<FinishGoal>().transform.position;
         StartCoroutine(UpdateDistance());
@@ -22,6 +25,7 @@ public class GUIManager : MonoBehaviour
 
     public void MenuClicked()
     {
+        if (lostOrWon) return;
         menuState = menuState ? false : true;
         if (menuState) Time.timeScale = 0;
         else Time.timeScale = 1;

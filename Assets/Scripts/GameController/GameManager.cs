@@ -95,12 +95,14 @@ public class GameManager : MonoBehaviour
 
     public void Won()
     {
+        GetComponent<GUIManager>().lostOrWon = true;
         winningText.SetActive(true);
         Time.timeScale = 0;
     }
 
     public void Lost()
     {
+        GetComponent<GUIManager>().lostOrWon = true;
         losingText.SetActive(true);
         Time.timeScale = 0;
     }

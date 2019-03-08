@@ -17,7 +17,7 @@ public class Weapon : MonoBehaviour
     [SerializeField] private int startAmmu;
     [SerializeField] private int reloadAmount;
     
-    [SerializeField] private GameManager.bulletType typeOfBullet;
+    [SerializeField] public GameManager.bulletType typeOfBullet;
     private int ammuAmount;
     public bool autoFire;
     public int weaponTyp;
@@ -41,11 +41,12 @@ public class Weapon : MonoBehaviour
         gunPoint = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>().gunPoint;
         //gunPoint = Player.player.gameObject.GetComponent<Player>().gunPoint;
         guiCanvas = GameObject.FindGameObjectWithTag("Canvas");
-        foreach (WeaponButton w in guiCanvas.GetComponentsInChildren<WeaponButton>())
-        {
-            if (w.GetStatus()) ammuText = w.GetComponentInChildren<Text>();
-        }
-        ammuText.text = ammuAmount.ToString();
+        //foreach (WeaponButton w in guiCanvas.GetComponentsInChildren<WeaponButton>())
+        //{
+        //    if (w.GetStatus()) ammuText = w.GetComponentInChildren<Text>();
+        //}
+        //ammuText.text = ammuAmount.ToString();
+        //Player.player.equipedWeaponText.text = ammuAmount.ToString();
     }
 
     protected virtual void Update()
@@ -96,12 +97,20 @@ public class Weapon : MonoBehaviour
 
     public void UpdateAmmuGUI()
     {
-        foreach (WeaponButton w in guiCanvas.GetComponentsInChildren<WeaponButton>())
-        {
-            if (w.GetStatus()) ammuText = w.GetComponentInChildren<Text>();
-        }
-        ammuText.text = ammuAmount.ToString();
+        //foreach (WeaponButton w in guiCanvas.GetComponentsInChildren<WeaponButton>())
+        //{
+        //    if (w.GetStatus()) ammuText = w.GetComponentInChildren<Text>();
+        //}
+        //ammuText.text = ammuAmount.ToString();
+        Player.player.equipedWeaponText.text = ammuAmount.ToString();
     }
+
+    public void UpdateStartAmmuGUI()
+    {
+        ammuAmount = startAmmu;
+        Player.player.equipedWeaponText.text = ammuAmount.ToString();
+    }
+
 
     public bool AddAmmu(GameManager.bulletType bullet, int amount)
     {
@@ -125,17 +134,25 @@ public class Weapon : MonoBehaviour
         else return false;
     }
 
+    public void AddAmmu()
+    {
+        ammuAmount = (ammuAmount + reloadAmount) > maxAmmu ? maxAmmu : (ammuAmount + reloadAmount);
+        UpdateAmmuGUI();
+    }
+
+    public void AddSecondAmmu()
+    {
+        ammuAmount = (ammuAmount + reloadAmount) > maxAmmu ? maxAmmu : (ammuAmount + reloadAmount);
+        Player.player.secondWeaponText.text = ammuAmount.ToString();
+    }
+
     public bool AddSecondAmmu(GameManager.bulletType bullet)
     {
         if (bullet == typeOfBullet)
         {
             if (guiCanvas == null) Start();
             ammuAmount = (ammuAmount + reloadAmount) > maxAmmu ? maxAmmu : (ammuAmount + reloadAmount);
-            foreach (WeaponButton w in guiCanvas.GetComponentsInChildren<WeaponButton>())
-            {
-                if (!w.GetStatus()) ammuText = w.GetComponentInChildren<Text>();
-            }
-            ammuText.text = ammuAmount.ToString();
+            Player.player.secondWeaponText.text = ammuAmount.ToString();
             return true;
         }
         else return false;

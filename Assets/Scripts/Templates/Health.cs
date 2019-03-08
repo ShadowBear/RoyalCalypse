@@ -37,7 +37,6 @@ public abstract class Health : MonoBehaviour
             } else shield -= dmg;
         }else health -= dmg;
         ShowDamage(dmg, transform);
-        Debug.Log("Schaden: " + dmg);
         UpdateFillamount();
 
         if (health <= 0) Die();

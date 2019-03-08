@@ -26,6 +26,8 @@ public class Player : MonoBehaviour
     [SerializeField] private GameObject secondWeapon;
     [SerializeField] private Image firstWeaponImage;
     [SerializeField] private Image secondWeaponImage;
+    public Text secondWeaponText;
+    public Text equipedWeaponText;
 
     private void Awake()
     {
@@ -91,12 +93,19 @@ public class Player : MonoBehaviour
     {
         if(secondWeapon == null)
         {
+
             secondWeapon = equipedWeapon;
             Sprite weaponSprite = equipedWeaponScript.guiImageWeapon;
             secondWeaponImage.sprite = weaponSprite;
         }
         Transform gunTrans = transform.Find("root/pelvis/spine_01/spine_02/spine_03/clavicle_r/upperarm_r/lowerarm_r/hand_r/" + weaponName);
         GameObject weapon = gunTrans.gameObject;
+        if (weapon == equipedWeapon || weapon == secondWeapon)
+        {
+            if (weapon == equipedWeapon) equipedWeaponScript.AddAmmu();
+            else secondWeapon.GetComponent<Weapon>().AddSecondAmmu();
+            return;
+        }
         equipedWeapon.SetActive(false);
         equipedWeapon = weapon;
         equipedWeaponScript = equipedWeapon.GetComponent<Weapon>();
@@ -106,16 +115,20 @@ public class Player : MonoBehaviour
         }else secondWeaponImage.sprite = equipedWeaponScript.guiImageWeapon;
 
         equipedWeapon.SetActive(true);
+        equipedWeaponScript.UpdateStartAmmuGUI();
     }
 
-    public void SwapSecondWeapon()
+    public void SwapToSecondWeapon()
     {
         GameObject temp = equipedWeapon;
+        Text tempText = equipedWeaponText;
 
         equipedWeapon.SetActive(false);  
         
         equipedWeapon = secondWeapon;
+        equipedWeaponText = secondWeaponText;
         secondWeapon = temp;
+        secondWeaponText = tempText;
         
         equipedWeaponScript = equipedWeapon.GetComponent<Weapon>();
         equipedWeapon.SetActive(true);
@@ -140,7 +153,7 @@ public class Player : MonoBehaviour
         else
         {
             reloaded = secondWeapon.GetComponent<Weapon>().AddSecondAmmu(type);
-            equipedWeaponScript.UpdateAmmuGUI();
+            //equipedWeaponScript.UpdateAmmuGUI(secondWeaponText);
             return reloaded;
         }
         

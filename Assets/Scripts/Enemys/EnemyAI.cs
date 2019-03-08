@@ -36,6 +36,8 @@ public abstract class EnemyAI : MonoBehaviour
     //[SerializeField] protected float followDistance;
     
     public bool alive = true;
+    private bool lookingAround = false;
+    Quaternion rotation = Quaternion.Euler(0, 0, 0);
 
     public enum EnemyState { Patrol, Guard, Search, Fight, Attack, Follow, SummonHelp, Rescue, Run}
     [SerializeField] protected EnemyState currentState;
@@ -146,12 +148,27 @@ public abstract class EnemyAI : MonoBehaviour
         {
             if (currentState == EnemyState.Guard) guardingTime -= Time.deltaTime;
             if (guardingTime <= 0) currentState = EnemyState.Patrol;
-            transform.rotation = Quaternion.Slerp(transform.rotation, patrolPoints[currentPatrolPoint].rotation, Time.deltaTime * 5f);
+            //transform.rotation = Quaternion.Slerp(transform.rotation, patrolPoints[currentPatrolPoint].rotation, Time.deltaTime * 5f);
         }
         else
         {
-            transform.rotation = Quaternion.Slerp(transform.rotation, startRotation, Time.deltaTime * 5f);
+            //transform.rotation = Quaternion.Slerp(transform.rotation, startRotation, Time.deltaTime * 5f);
+            
         }
+        if (!lookingAround) StartCoroutine(LookAroundOnGuarding());
+        transform.rotation = Quaternion.Slerp(transform.rotation, rotation, Time.deltaTime * .5f);
+    }
+
+    IEnumerator LookAroundOnGuarding()
+    {
+        lookingAround = true;
+        float look = Random.Range(0f, 360f);
+        rotation = Quaternion.Euler(transform.rotation.x, look, transform.rotation.z);
+        float waitingTime = Random.Range(5f, 12f);
+        yield return new WaitForSeconds(waitingTime);
+        lookingAround = false;
+        yield return null;
+
     }
 
     protected abstract void Fight();

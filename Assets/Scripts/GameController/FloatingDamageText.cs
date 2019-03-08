@@ -39,7 +39,7 @@ public class FloatingDamageText : MonoBehaviour
         if (lifeTime <= 0) Destroy(transform.parent.gameObject);
         else
         {
-            transform.localScale += scaleVector;
+            if(Time.timeScale > 0) transform.localScale += scaleVector;
         }
     }
 }

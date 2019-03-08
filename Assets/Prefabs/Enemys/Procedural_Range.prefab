@@ -8496,7 +8496,6 @@ GameObject:
   m_Component:
   - component: {fileID: 3813969885080331531}
   - component: {fileID: 5499396244412199570}
-  - component: {fileID: 1221553388330865469}
   m_Layer: 12
   m_Name: MinimapIcon (5)
   m_TagString: Untagged
@@ -8566,18 +8565,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &1221553388330865469
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8349920808864099475}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ec23a25be687b7d4097979866f8c3c27, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &602527284234701111
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -9524,12 +9511,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4a506aecdc420b64a8786ea4555e15de, type: 3}
---- !u!224 &4447460227209169403 stripped
-RectTransform:
-  m_CorrespondingSourceObject: {fileID: 224217342077690736, guid: 4a506aecdc420b64a8786ea4555e15de,
-    type: 3}
-  m_PrefabInstance: {fileID: 4513761310621493899}
-  m_PrefabAsset: {fileID: 0}
 --- !u!114 &4554033097924730091 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 114618616100566624, guid: 4a506aecdc420b64a8786ea4555e15de,
@@ -9542,6 +9523,12 @@ MonoBehaviour:
   m_Script: {fileID: -765806418, guid: f70555f144d8491a825f0804e09c671c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!224 &4447460227209169403 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 224217342077690736, guid: 4a506aecdc420b64a8786ea4555e15de,
+    type: 3}
+  m_PrefabInstance: {fileID: 4513761310621493899}
+  m_PrefabAsset: {fileID: 0}
 --- !u!114 &4513761310428793442 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 1971085545, guid: 4a506aecdc420b64a8786ea4555e15de,

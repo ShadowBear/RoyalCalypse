@@ -20,7 +20,15 @@ public class ProceduralAmmuSpawn : MonoBehaviour
                 ammuObjects.Add(t.gameObject);
             }
         }
-        int ammu = Random.Range(0, ammuObjects.Count);
+
+        int ammu = 0;
+        float rand = Random.Range(0f, 1f);
+        if (rand <= 1f && rand >= 0.85f) ammu = 3;
+        else if (rand < 0.85f && rand >= 0.70f) ammu = 2;
+        else if (rand < 0.70f && rand >= 0.55f) ammu = 1;
+        else ammu = 0;
+
+        //int ammu = Random.Range(0, ammuObjects.Count);
         GameObject spawnAmmu = Instantiate(ammuObjects[ammu], transform.position, Quaternion.identity);
         spawnAmmu.transform.parent = transform;
         if (ammu == 3) spawnAmmu.transform.position = new Vector3(transform.position.x, 0.5f, transform.position.z);

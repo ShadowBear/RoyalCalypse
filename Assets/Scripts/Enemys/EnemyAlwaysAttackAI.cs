@@ -87,7 +87,6 @@ public class EnemyAlwaysAttackAI : EnemyAI
             if (remainDis >= outOfRange)
             {
                 currentState = EnemyState.Patrol;
-                Debug.Log("out Of Range");
             }
         }
     }

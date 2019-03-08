@@ -24,7 +24,7 @@ public class WeaponButton : MonoBehaviour
     {
         active = active ? false : true;
         //GameObject.FindGameObjectWithTag("Player").GetComponent<Player>().SwapSecondWeapon();
-        Player.player.gameObject.GetComponent<Player>().SwapSecondWeapon();
+        Player.player.gameObject.GetComponent<Player>().SwapToSecondWeapon();
         UpdateWeapon();
         otherWeaponButton.GetComponent<WeaponButton>().ChangeStatus();
         otherWeaponButton.GetComponent<WeaponButton>().UpdateWeapon();
