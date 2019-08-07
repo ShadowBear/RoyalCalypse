@@ -12,6 +12,14 @@ TagManager:
   - Ammu
   - Regeneration
   - Item
+  - OwnGunPoint
+  - Destructible
+  - GroundTile
+  - StartPoint
+  - FlyBoat
+  - MenuItem
+  - WeaponSlot1
+  - WeaponSlot2
   layers:
   - Default
   - TransparentFX

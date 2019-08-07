@@ -186,6 +186,7 @@ public abstract class EnemyAI : MonoBehaviour
 
     protected virtual void SummonHelp()
     {
+        //Debug.Log("Bitte um Hilfe");
         Collider[] friendsInViewRadius = Physics.OverlapSphere(transform.position, helpRadius, alliesMask);
         for (int i = 0; i < friendsInViewRadius.Length; i++)
         {
@@ -230,7 +231,9 @@ public abstract class EnemyAI : MonoBehaviour
     public void HelpMe(Vector3 helpPosition)
     {
         helpNeededPosition = helpPosition;
-        currentState = EnemyState.Rescue;
+        //currentState = EnemyState.Rescue;
+        if(currentState == EnemyState.Guard || currentState == EnemyState.Patrol) currentState = EnemyState.Fight;
+        //Debug.Log("Hilfe angekommen!");
     }
     
 

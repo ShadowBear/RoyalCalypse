@@ -7,8 +7,11 @@ public class CollectHealth : CollectItemTemplate
     public int healthAmount;
     protected override void CollectIt(Collider player)
     {
-        player.GetComponent<Health>().AddHealth(healthAmount);
-        if (transform.parent != null) Destroy(transform.parent.gameObject);
-        else Destroy(gameObject);
+        if (player.GetComponent<Health>().AddHealth(healthAmount))
+        {
+            if (transform.parent != null) Destroy(transform.parent.gameObject);
+            else Destroy(gameObject);
+        }
+        else image.fillAmount = 0;
     }
 }

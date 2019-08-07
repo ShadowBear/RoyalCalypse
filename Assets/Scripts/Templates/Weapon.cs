@@ -18,7 +18,7 @@ public class Weapon : MonoBehaviour
     [SerializeField] private int reloadAmount;
     
     [SerializeField] public GameManager.bulletType typeOfBullet;
-    private int ammuAmount;
+    protected int ammuAmount;
     public bool autoFire;
     public int weaponTyp;
     public GameObject bullet;
@@ -39,8 +39,8 @@ public class Weapon : MonoBehaviour
         attacking = false;
         canAttack = true;
         gunPoint = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>().gunPoint;
-        //gunPoint = Player.player.gameObject.GetComponent<Player>().gunPoint;
         guiCanvas = GameObject.FindGameObjectWithTag("Canvas");
+
         //foreach (WeaponButton w in guiCanvas.GetComponentsInChildren<WeaponButton>())
         //{
         //    if (w.GetStatus()) ammuText = w.GetComponentInChildren<Text>();
@@ -60,7 +60,7 @@ public class Weapon : MonoBehaviour
 
     }
 
-    IEnumerator Shot()
+    protected virtual IEnumerator Shot()
     {
         canAttack = false;
         ammuAmount--;

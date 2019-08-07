@@ -6,51 +6,43 @@ using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
+    public bool stageClear = false;
+        
+    public int score = 0;
+    public int kills = 0;
+    public int gold = 0;
+    public int acutalRaidGold = 0;
+    public int exp = 0;
+    public int lvl = 0;
+    public int maxExp = 0;
+    public int attack = 0;
+    public int maxHealth = 0;
+    public int weaponID = 0;
+    public int hearths = 0;
+    public int gems = 0;
+    public int acutalRaidGem = 0;
 
-    public Text scoreText;
-    public Text killsText;
-    private int score;
-    private int kills = 0;
+    public string playerName = "ShadowBear";
 
-    public Text timeText;
+    public GameObject playerHubGUI;
+
+    
+    //public Text timeText;
     [SerializeField] private float time;
     [SerializeField] bool timeRun;
-
+    
     [SerializeField] private GameObject damageText;
     public enum bulletType { Bullet, Rocket, Liquid, Shotgun };
     public static GameManager gameManager;
+    [HideInInspector]public GUIManager guiManager;
 
-    public GameObject winningText;
-    public GameObject losingText;
-
-    public GameObject goalsParent;
-    public Transform [] goals;
-    public List<GameObject> goalsGameObject = new List<GameObject>();
-    public GameObject finishGoal;
-
-    public GameObject startingTransParent;
-    public Transform[] startingTransforms;
-    public Vector3 playerStartPos;
+    
 
     private void Awake()
     {
         if (gameManager == null) gameManager = this;
-        else if (gameManager != this) Destroy(this);
-        goals = goalsParent.GetComponentsInChildren<Transform>();
-        foreach(Transform t in goals)
-        {
-            if (t.CompareTag("Goal"))
-            {
-                goalsGameObject.Add(t.gameObject);
-                t.gameObject.SetActive(false);
-            }            
-        }
-        int goal = Random.Range(0, goalsGameObject.Count);
-        finishGoal = goalsGameObject[goal];
-        finishGoal.SetActive(true);
-
-        startingTransforms = startingTransParent.GetComponentsInChildren<Transform>();
-        SetStartPosition();
+        else if (gameManager != this) Destroy(this.gameObject);
+        DontDestroyOnLoad(gameObject);
 
     }
 
@@ -58,10 +50,12 @@ public class GameManager : MonoBehaviour
     void Start()
     {
         Time.timeScale = 1;
-        score = 0;
-        UpdateScore();
-        if (timeRun) StartCoroutine(UpdateTime());
-        else timeText.enabled = false;
+        guiManager = GetComponentInChildren<GUIManager>();
+
+        guiManager.UpdateScore();
+        //if (timeRun) StartCoroutine(UpdateTime());
+        //else timeText.enabled = false;
+        SceneManager.sceneLoaded += SceneChanged;
     }
 
     private void Update()
@@ -71,40 +65,55 @@ public class GameManager : MonoBehaviour
             time -= Time.deltaTime;
             if (time <= -1) Player.player.GetComponent<Health>().LostGame();
         }
-    }    
+    }   
+    
+    public void SceneChanged(Scene scene, LoadSceneMode loadSceneMode)
+    {
+        if (scene == SceneManager.GetSceneByBuildIndex(0)) playerHubGUI.SetActive(false);
+        else
+        {
+            playerHubGUI.SetActive(true);
+            guiManager.Start();
+        }
+    }
 
     public void AddScore()
     {
         score++;
-        UpdateScore();
+        guiManager.UpdateScore();
     }
 
     public void AddScore(int scoreAmount)
     {
         score += scoreAmount;
+        guiManager.UpdateScore();
+    }
+
+    public void AddScore(int scoreAmount, bool kill)
+    {
+        score += scoreAmount;
         kills++;
-        UpdateScore();
+        guiManager.UpdateScore();
     }
 
     public void ResetScore()
     {
         score = 0;
         kills = 0;
-        UpdateScore();
-    }
-
-    public void Won()
-    {
-        GetComponent<GUIManager>().lostOrWon = true;
-        winningText.SetActive(true);
-        Time.timeScale = 0;
+        guiManager.UpdateScore();
     }
 
     public void Lost()
     {
-        GetComponent<GUIManager>().lostOrWon = true;
-        losingText.SetActive(true);
-        Time.timeScale = 0;
+        guiManager.Lost();
+    }
+
+    public void HomeCalled()
+    {
+        gold += acutalRaidGold;
+        gems += acutalRaidGem;
+        acutalRaidGem = 0;
+        acutalRaidGold = 0;
     }
 
     public void ShowDamageText(int damage, Transform displayTrans)
@@ -120,21 +129,7 @@ public class GameManager : MonoBehaviour
         dmgText.transform.position = screenPosition;
 
     }
-
-    void UpdateScore()
-    {
-        scoreText.text = "S: " + score.ToString();
-        killsText.text = "K: " + kills.ToString();
-    }
-
-    void SetStartPosition()
-    {
-        int startInt = Random.Range(1, startingTransforms.Length);
-        playerStartPos = startingTransforms[startInt].position;
-        float distance = Vector3.Distance(playerStartPos, finishGoal.transform.position);
-        time = distance * 1.33f > 999 ? 999: distance * 1.33f;
-        if (distance < 125f) SetStartPosition();
-    }
+      
 
     public void NewGame()
     {        
@@ -146,13 +141,13 @@ public class GameManager : MonoBehaviour
         Application.Quit();
     }
 
-    IEnumerator UpdateTime()
-    {
-        while(time >= -1) {
-            timeText.text = Mathf.Ceil(time).ToString();
-            if (time < 10) timeText.color = Color.red;
-            else timeText.color = Color.white;
-            yield return new WaitForSeconds(.2f);
-        }
-    }
+    //IEnumerator UpdateTime()
+    //{
+    //    while(time >= -1) {
+    //        timeText.text = Mathf.Ceil(time).ToString();
+    //        if (time < 10) timeText.color = Color.red;
+    //        else timeText.color = Color.white;
+    //        yield return new WaitForSeconds(.2f);
+    //    }
+    //}
 }

@@ -9,10 +9,6 @@ public class FloatingJoystick : Joystick
 
     void Start()
     {
-        //Uncomment if dont want to be visible alltime
-        //background.gameObject.SetActive(false);
-
-        //playerScript = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
         playerScript = Player.player.gameObject.GetComponent<Player>();
     }
 

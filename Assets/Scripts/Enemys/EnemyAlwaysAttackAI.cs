@@ -5,16 +5,16 @@ using UnityEngine;
 public class EnemyAlwaysAttackAI : EnemyAI
 {
     public bool melee;
-    protected float meleeAttackDistance = 3f;
+    protected float meleeAttackDistance = 2.5f;
     private float attackRate = 2f;
-    private float outOfRange = 15f;
+    [SerializeField] float outOfRange = 15f;
 
     [Range(7, 25)]
-    [SerializeField] private float shootingDistance;
-    [SerializeField] private float shootingHysterese = 3f;
-    [SerializeField] private Transform gunPoint;
+    [SerializeField] float shootingDistance;
+    [SerializeField] float shootingHysterese = 3f;
+    [SerializeField] Transform gunPoint;
     private Vector3 playerPos;
-    [SerializeField] private Weapon equipedWeapon;
+    [SerializeField] protected Weapon equipedWeapon;
 
     private bool inSight = false;
 
@@ -49,6 +49,8 @@ public class EnemyAlwaysAttackAI : EnemyAI
 
     protected override void Fight()
     {
+        //Sage allen Position vom Spieler
+        SummonHelp();
         RotateToPlayer();
         if (followUpdater) StartCoroutine(UpdatePlayerPos());
         if (melee)

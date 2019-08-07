@@ -4,13 +4,13 @@ using UnityEngine;
 
 public class CameraFollow : MonoBehaviour
 {
-    public Transform playerToFollow;
-    private Vector3 offset;
+    [SerializeField] Transform playerToFollow;
+    [SerializeField] Vector3 offset;
     public float smoothing;
     // Start is called before the first frame update
     void Start()
     {
-        offset = new Vector3 (0, transform.position.y, transform.position.z);
+        if (playerToFollow == null) playerToFollow = GameObject.FindGameObjectWithTag("Player").transform;
     }
 
     // Update is called once per frame

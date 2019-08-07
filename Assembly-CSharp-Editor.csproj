@@ -60,6 +60,12 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\Low Poly Animated Animals\- Scripts\AnimalScripts\Editor\AnimalManagerEditor.cs" />
+    <Compile Include="Assets\NavMeshComponents\Editor\NavMeshComponentsGUIUtility.cs" />
+    <Compile Include="Assets\NavMeshComponents\Editor\NavMeshLinkEditor.cs" />
+    <Compile Include="Assets\NavMeshComponents\Editor\NavMeshModifierEditor.cs" />
+    <Compile Include="Assets\NavMeshComponents\Editor\NavMeshModifierVolumeEditor.cs" />
+    <Compile Include="Assets\NavMeshComponents\Editor\NavMeshSurfaceEditor.cs" />
     <Compile Include="Assets\POLY STYLE - Sci-Fi Characters\Editor\ImageEffects\AntialiasingEditor.cs" />
     <Compile Include="Assets\POLY STYLE - Sci-Fi Characters\Editor\ImageEffects\BloomAndFlaresEditor.cs" />
     <Compile Include="Assets\POLY STYLE - Sci-Fi Characters\Editor\ImageEffects\BloomEditor.cs" />
@@ -108,6 +114,7 @@
     <Compile Include="Assets\PostProcessing\Editor\Utils\FxStyles.cs" />
     <Compile Include="Assets\PostProcessing\Editor\Utils\ReflectionUtils.cs" />
     <Compile Include="Assets\Scripts\Editor\FieldOfViewEditor.cs" />
+    <Compile Include="Assets\Scripts\Editor\MapGeneratorEditor.cs" />
     <Reference Include="Unity.TextMeshPro.Editor">
       <HintPath>F:/Unity2/Projekte/SourceTree/Royalcalyspe/RoyalCalypse/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
     </Reference>

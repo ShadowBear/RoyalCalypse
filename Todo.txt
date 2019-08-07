@@ -1,0 +1,23 @@
+KI:
+- Bombenwerfer
+- Gegnerspawnen
+- TornadosMagier
+	- drei Tornados im Kreis immer größer ziehen
+	- Tornado auf Spieler zu steuern
+	- 
+- Heiler
+- Bewegung im Kreis um den Spieler
+- Nur hinten Trefferfläche
+- Fantasy Rivivals integrieren
+- Tornado verfolgung mit trägheit
+- opfernde Gegner ->explodieren
+- schaden nur am Spieler kein friendlyFire
+- Linienschaden
+- Gebietschaden der über kurze zeit bleibt -> Feuer/Säure
+- Gegner hinter einen Teleportieren
+ 
+
+Landschaft
+- Bewegliche Plattformen (HOB)
+- Drei Sterne Finden durch Objekt??
+- 

@@ -42,6 +42,8 @@ namespace PolygonArsenal
                 //Destroy(gameObject, life);
 
             }
+            m_Source.maxDistance = 7f;
+            m_Source.minDistance = 4f;
         }
     }
 }

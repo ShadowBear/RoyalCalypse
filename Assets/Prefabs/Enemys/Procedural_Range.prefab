@@ -3945,8 +3945,8 @@ GameObject:
   - component: {fileID: 1895116459501272176}
   - component: {fileID: 1895116459501272177}
   - component: {fileID: 8007794409466096449}
-  - component: {fileID: 1895116459501272181}
   - component: {fileID: 4619084053619223090}
+  - component: {fileID: 2630092416100627734}
   m_Layer: 9
   m_Name: Procedural_Range
   m_TagString: Enemy
@@ -4060,7 +4060,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b239c8f077fbb9e44845e5a03f24a8a5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  viewRadius: 10
+  viewRadius: 15
   viewAngle: 115
   targetMask:
     serializedVersion: 2
@@ -4070,37 +4070,6 @@ MonoBehaviour:
     m_Bits: 2048
   visibleTargets: []
   visible: 0
---- !u!114 &1895116459501272181
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1895116459501272179}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 722bcccb4e5968741b1b26bb107f5c49, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  alliesMask:
-    serializedVersion: 2
-    m_Bits: 512
-  helpRadius: 0
-  patrolPointParent: {fileID: 0}
-  patrolPoints: []
-  NonPatrolGuard: 1
-  NonPatrolGuardingPoint: {x: 0, y: 0, z: 0}
-  guardingTime: 0
-  maxGuardingTime: 3
-  minGuardingTime: 2
-  alive: 1
-  currentState: 0
-  melee: 0
-  shootingDistance: 10
-  shootingHysterese: 3
-  gunPoint: {fileID: 504478017934620407}
-  equipedWeapon: {fileID: 0}
-  remainDis: 0
 --- !u!114 &4619084053619223090
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4117,6 +4086,39 @@ MonoBehaviour:
   avatarParent: {fileID: 4513761309633242704}
   forceMelee: 0
   forceRange: 1
+--- !u!114 &2630092416100627734
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1895116459501272179}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62b3e2a9a617ad24dac57586eff865b6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  alliesMask:
+    serializedVersion: 2
+    m_Bits: 512
+  helpRadius: 15
+  patrolPointParent: {fileID: 0}
+  patrolPoints: []
+  NonPatrolGuard: 0
+  NonPatrolGuardingPoint: {x: 0, y: 0, z: 0}
+  guardingTime: 0
+  maxGuardingTime: 3
+  minGuardingTime: 2
+  alive: 1
+  currentState: 0
+  melee: 0
+  outOfRange: 25
+  shootingDistance: 10
+  shootingHysterese: 3
+  gunPoint: {fileID: 504478017934620407}
+  equipedWeapon: {fileID: 0}
+  remainDis: 0
+  wanderRadius: 20
 --- !u!1 &1895116773450972521
 GameObject:
   m_ObjectHideFlags: 0

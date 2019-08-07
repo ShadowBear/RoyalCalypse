@@ -92,14 +92,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damage: 22
   damageVarianz: 11
-  fireRate: 0.75
+  fireRate: 0.5
   projectileSpeed: 750
   dmgRadius: 0
   maxAmmu: 100
   startAmmu: 25
   reloadAmount: 15
   typeOfBullet: 2
-  autoFire: 0
+  autoFire: 1
   weaponTyp: 0
   bullet: {fileID: 1587250918974726, guid: 7b0e5b9aa7339284081d25c7e7065899, type: 3}
   attacking: 0

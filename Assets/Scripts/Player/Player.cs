@@ -7,8 +7,8 @@ using UnityEngine.UI;
 public class Player : MonoBehaviour
 {
     public static Player player;
-    public Joystick movementJoystick;
-    public Joystick rotationJoystick;
+    private Joystick movementJoystick;
+    private Joystick rotationJoystick;
     public float movementMaxSpeed;
     public float movementSpeed;
     private Vector3 movement;
@@ -22,12 +22,12 @@ public class Player : MonoBehaviour
     private Animator anim;
 
     public GameObject equipedWeapon;
-    private Weapon equipedWeaponScript;
+    [SerializeField] Weapon equipedWeaponScript;
     [SerializeField] private GameObject secondWeapon;
-    [SerializeField] private Image firstWeaponImage;
-    [SerializeField] private Image secondWeaponImage;
-    public Text secondWeaponText;
-    public Text equipedWeaponText;
+    private Image firstWeaponImage;
+    private Image secondWeaponImage;
+    [HideInInspector]public Text secondWeaponText;
+    [HideInInspector] public Text equipedWeaponText;
 
     private void Awake()
     {
@@ -37,13 +37,19 @@ public class Player : MonoBehaviour
 
     void Start()
     {
+        movementJoystick = GameManager.gameManager.GetComponent<GUIManager>().movementJoystick;
+        rotationJoystick = GameManager.gameManager.GetComponent<GUIManager>().rotationJoystick;
         playerRigidbody = GetComponent<Rigidbody>();
         anim = GetComponent<Animator>();
         arming = false;
         line.SetActive(false);
         equipedWeaponScript = equipedWeapon.GetComponent<Weapon>();
+        firstWeaponImage = GameObject.FindGameObjectWithTag("WeaponSlot1").transform.GetChild(0).GetComponent<Image>();
+        secondWeaponImage = GameObject.FindGameObjectWithTag("WeaponSlot2").transform.GetChild(0).GetComponent<Image>();
         firstWeaponImage.sprite = equipedWeaponScript.guiImageWeapon;
         secondWeaponImage.sprite = secondWeapon.GetComponent<Weapon>().guiImageWeapon;
+        equipedWeaponText = GameObject.FindGameObjectWithTag("WeaponSlot1").transform.GetChild(1).GetComponent<Text>();
+        secondWeaponText = GameObject.FindGameObjectWithTag("WeaponSlot2").transform.GetChild(1).GetComponent<Text>();
     }
 
     // Update is called once per frame

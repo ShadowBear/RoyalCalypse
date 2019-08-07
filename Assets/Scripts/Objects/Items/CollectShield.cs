@@ -8,8 +8,11 @@ public class CollectShield : CollectItemTemplate
 
     protected override void CollectIt(Collider player)
     {
-        player.GetComponent<Health>().AddShield(shieldAmount);
-        if (transform.parent != null) Destroy(transform.parent.gameObject);
-        else Destroy(gameObject);
+        if (player.GetComponent<Health>().AddShield(shieldAmount))
+        {
+            if (transform.parent != null) Destroy(transform.parent.gameObject);
+            else Destroy(gameObject);
+        }
+        else image.fillAmount = 0;        
     }
 }

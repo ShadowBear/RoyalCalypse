@@ -5,6 +5,7 @@ using UnityEngine;
 public class ProceduralRegenerationSpawn : MonoBehaviour
 {
     [SerializeField] GameObject regenParent;
+    private int regInt = -1;
     //[SerializeField] GameObject spawnWeapon;
 
     // Start is called before the first frame update
@@ -20,8 +21,8 @@ public class ProceduralRegenerationSpawn : MonoBehaviour
                 regenObjects.Add(t.gameObject);
             }
         }
-        int reg = Random.Range(0, regenObjects.Count);
-        GameObject spawnReg = Instantiate(regenObjects[reg], transform.position, Quaternion.identity);
+        if(regInt == -1) regInt = Random.Range(0, regenObjects.Count);
+        GameObject spawnReg = Instantiate(regenObjects[regInt], transform.position, Quaternion.identity);
         spawnReg.transform.parent = transform;
     }
 }

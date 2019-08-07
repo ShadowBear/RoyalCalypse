@@ -172,16 +172,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 63d2ed5ca73b5344db459cd2cad98010, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 25
+  damage: 15
   damageVarianz: 0
-  fireRate: 0.75
+  fireRate: 0.25
   projectileSpeed: 750
   dmgRadius: 0
   maxAmmu: 250
   startAmmu: 50
   reloadAmount: 50
   typeOfBullet: 0
-  autoFire: 0
+  autoFire: 1
   weaponTyp: 0
   bullet: {fileID: 1587250918974726, guid: eefe40d3d7a9975478b442f4bc9148dc, type: 3}
   attacking: 0

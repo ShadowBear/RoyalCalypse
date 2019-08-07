@@ -11,14 +11,23 @@ public abstract class Health : MonoBehaviour
     [SerializeField] protected int health;
     [SerializeField] protected int shield;
 
-    [SerializeField] protected Image healthbar;
-    [SerializeField] protected Image shieldbar;
+    //[SerializeField] protected Image healthbar;
+    //[SerializeField] protected Image shieldbar;
+    protected Slider healthbarSlider;
+    protected Slider shieldbarSlider;
 
     public bool alive = true;
 
     protected virtual void Start()
     {
         health = maxHealth;
+        foreach (Transform t in transform.GetComponentsInChildren<Transform>())
+        {
+            if (t.name == "SkillGuageHealth") healthbarSlider = t.GetComponentInChildren<Slider>();
+            else if(t.name == "SkillGuageShield") shieldbarSlider = t.GetComponentInChildren<Slider>();
+        }
+        //healthbarSlider = transform.Find("SkillGuageHealth").GetComponentInChildren<Slider>();
+        //shieldbarSlider = transform.Find("SkillGuageShield").GetComponentInChildren<Slider>();
         UpdateFillamount();
         shield = 0;
     }
@@ -44,20 +53,26 @@ public abstract class Health : MonoBehaviour
 
     protected void UpdateFillamount()
     {
-        healthbar.fillAmount = (float)health / maxHealth;
-        shieldbar.fillAmount = (float)shield / maxShield;
+        if(healthbarSlider != null)healthbarSlider.value = (float)health / maxHealth;
+        //else healthbar.fillAmount = (float)health / maxHealth;
+        if(shieldbarSlider != null) shieldbarSlider.value = (float)shield / maxShield;
+        //else shieldbar.fillAmount = (float)shield / maxShield;
     }
 
-    public virtual void AddHealth(int health)
+    public virtual bool AddHealth(int health)
     {
+        if (this.health == maxHealth) return false;
         this.health = (this.health + health) > maxHealth? maxHealth : (this.health + health);
         UpdateFillamount();
+        return true;
     }
 
-    public virtual void AddShield(int shield)
+    public virtual bool AddShield(int shield)
     {
+        if (this.shield == maxShield) return false;
         this.shield = (this.shield + shield) > maxShield ? maxShield : (this.shield + shield);
         UpdateFillamount();
+        return true;
     }
 
     public virtual void ShowDamage(int damage, Transform trans) { }

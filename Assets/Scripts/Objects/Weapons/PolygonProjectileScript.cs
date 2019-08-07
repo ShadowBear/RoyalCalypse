@@ -55,8 +55,10 @@ namespace PolygonArsenal
 
                 if (hit.transform.tag == "Destructible") // Projectile will destroy objects tagged as Destructible
                 {
-                    Destroy(hit.transform.gameObject);
-                }else if(hit.transform.tag == "Enemy" || hit.transform.tag == "Player")
+                    //Destroy(hit.transform.gameObject);
+                    if (hit.transform.GetComponent<Health>()) hit.transform.GetComponent<Health>().Damage(100);
+                }
+                else if(hit.transform.tag == "Enemy" || hit.transform.tag == "Player")
                 {
                     hit.transform.GetComponent<Health>().Damage(damage);
                     //if(hit.transform.tag == "Enemy")Debug.Log("DamageFromPlayerWeapon: " + damage);

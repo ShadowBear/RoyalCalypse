@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class EnemyHealth : Health
 {
@@ -9,7 +10,13 @@ public class EnemyHealth : Health
     [SerializeField] private int score;
     protected override void Start()
     {
-        base.Start();
+        maxHealth = Random.Range(maxHealth / 2, maxHealth);
+        health = maxHealth;
+        foreach (Transform t in transform.GetComponentsInChildren<Transform>())
+        {
+            if (t.name == "SkillGuageHealth") healthbarSlider = t.GetComponentInChildren<Slider>();
+            else if (t.name == "SkillGuageShield") shieldbarSlider = t.GetComponentInChildren<Slider>();
+        }
         anim = GetComponent<Animator>();
         enemyAI = GetComponent<EnemyAI>();
         shield = maxShield;
@@ -19,6 +26,7 @@ public class EnemyHealth : Health
     public override void Damage(int dmg)
     {
         base.Damage(dmg);
+        if (enemyAI == null) return;
         if (enemyAI.GetCurrentState() != EnemyAI.EnemyState.Attack || 
             enemyAI.GetCurrentState() != EnemyAI.EnemyState.Follow ||
             enemyAI.GetCurrentState() != EnemyAI.EnemyState.Fight)
@@ -36,7 +44,7 @@ public class EnemyHealth : Health
     {
         alive = false;
         enemyAI.alive = alive;
-        if (score >= 0) GameManager.gameManager.AddScore(score);
+        if (score >= 0) GameManager.gameManager.AddScore(score, true);
         if (anim) anim.SetTrigger("Die");
         if (transform.parent != null) Destroy(transform.parent.gameObject, 3.9f);
         else Destroy(gameObject, 3.9f);

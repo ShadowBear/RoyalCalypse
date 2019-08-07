@@ -25,12 +25,12 @@ public abstract class CollectItemTemplate : MonoBehaviour
 
     }
 
-    private void OnTriggerExit(Collider other)
+    protected virtual void OnTriggerExit(Collider other)
     {
         if (other.CompareTag("Player"))
         {
             if (image.fillAmount == 1) CollectIt(other);
-            else image.fillAmount = 0;
+            image.fillAmount = 0;
         }
     }
 

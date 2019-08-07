@@ -5,6 +5,7 @@ using UnityEngine;
 public class ProceduralAmmuSpawn : MonoBehaviour
 {
     [SerializeField] GameObject ammuParent;
+    private int ammu = -1;
     //[SerializeField] GameObject spawnWeapon;
 
     // Start is called before the first frame update
@@ -21,12 +22,14 @@ public class ProceduralAmmuSpawn : MonoBehaviour
             }
         }
 
-        int ammu = 0;
-        float rand = Random.Range(0f, 1f);
-        if (rand <= 1f && rand >= 0.85f) ammu = 3;
-        else if (rand < 0.85f && rand >= 0.70f) ammu = 2;
-        else if (rand < 0.70f && rand >= 0.55f) ammu = 1;
-        else ammu = 0;
+        if (ammu == -1)
+        {
+            float rand = Random.Range(0f, 1f);
+            if (rand <= 1f && rand >= 0.85f) ammu = 3;
+            else if (rand < 0.85f && rand >= 0.70f) ammu = 2;
+            else if (rand < 0.70f && rand >= 0.55f) ammu = 1;
+            else ammu = 0;
+        }
 
         //int ammu = Random.Range(0, ammuObjects.Count);
         GameObject spawnAmmu = Instantiate(ammuObjects[ammu], transform.position, Quaternion.identity);
