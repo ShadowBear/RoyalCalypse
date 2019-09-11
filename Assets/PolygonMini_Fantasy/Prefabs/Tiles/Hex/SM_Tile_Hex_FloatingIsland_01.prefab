@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 33339967630197796}
   - component: {fileID: 23564663788724664}
   - component: {fileID: 5799609899160456618}
-  m_Layer: 0
+  m_Layer: 4
   m_Name: SM_Tile_Hex_FloatingIsland_01
   m_TagString: Untagged
   m_Icon: {fileID: 0}

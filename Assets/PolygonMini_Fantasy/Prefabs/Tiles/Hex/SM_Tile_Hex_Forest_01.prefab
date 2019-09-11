@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 33017178397461328}
   - component: {fileID: 23753732073574810}
   - component: {fileID: 6854673209779615084}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: SM_Tile_Hex_Forest_01
   m_TagString: Untagged
   m_Icon: {fileID: 0}

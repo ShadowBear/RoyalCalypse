@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 33171608787758524}
   - component: {fileID: 23764751426374978}
   - component: {fileID: 5739502774028211013}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: SM_Tile_Hex_Waterfall_01
   m_TagString: Untagged
   m_Icon: {fileID: 0}

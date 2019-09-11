@@ -40,6 +40,9 @@ public class MenuManager : MonoBehaviour
     public Image loadBar;
     public Text loadBarText;
 
+    public string[] selectedWeapons = new string[2];
+
+
     private void Start()
     {
         currentState = main;
@@ -90,6 +93,43 @@ public class MenuManager : MonoBehaviour
         inventoryItemCountText.text = count.ToString();
         loadBar.fillAmount = 0;
         loadBarText.text = "Loading....0%";
+        ResetItemInInventory(GameManager.gameManager.firstWeaponID);
+    }
+
+    public void SelectItemInInventory(string id)
+    {
+        WeaponSelectInventoryButton weaponButtonScript;
+        foreach (Transform t in inventory.GetComponentsInChildren<Transform>())
+        {
+            if (t.CompareTag("MenuItem"))
+            {
+                if (t.GetComponent<WeaponSelectInventoryButton>())
+                {
+                    weaponButtonScript = t.GetComponent<WeaponSelectInventoryButton>();
+                    if (weaponButtonScript.weaponID == id || weaponButtonScript.selected) {
+
+                        weaponButtonScript.ToogleSelected();
+                    }
+                }
+            }
+        }
+    }
+
+    public void ResetItemInInventory(string id)
+    {
+        WeaponSelectInventoryButton weaponButtonScript;
+        foreach (Transform t in inventory.GetComponentsInChildren<Transform>())
+        {
+            if (t.CompareTag("MenuItem"))
+            {
+                if (t.GetComponent<WeaponSelectInventoryButton>())
+                {
+                    weaponButtonScript = t.GetComponent<WeaponSelectInventoryButton>();
+                    if (weaponButtonScript.weaponID == id) weaponButtonScript.SetItemSelected();
+                    else weaponButtonScript.SetItemUnSelected();
+                }
+            }
+        }
     }
 
     public void Stages()

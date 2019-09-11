@@ -4,14 +4,15 @@ using UnityEngine;
 
 public class ResetPlayerTrigger : MonoBehaviour
 {
-    [SerializeField] Transform resetPoint;
-    [SerializeField] int resetDMG = 25;
+    Transform resetPoint;
+    int resetDMG = 45;
 
     // Start is called before the first frame update
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Player"))
         {
+            resetPoint = GetComponent<LevelPlattformGenerator>().GetStartingTile().tile.transform.GetChild(0);
             other.GetComponent<Health>().Damage(resetDMG);
             other.transform.position = resetPoint.position;
         }

@@ -48,10 +48,6 @@ public class FieldOfView : MonoBehaviour
                     visibleTargets.Add(target);
                     return true;
                 }
-                //else
-                //{
-                //    Debug.Log("Blockierte Sicht");
-                //}
             }
         }
         return false;

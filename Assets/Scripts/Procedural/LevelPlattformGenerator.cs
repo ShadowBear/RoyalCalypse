@@ -14,11 +14,20 @@ public class LevelPlattformGenerator : MonoBehaviour
     public GameObject[] waterTiles;
     public GameObject[] cloudTiles;
     public GameObject[] grasTiles;
+    public GameObject[] specialgrasTiles;
     public GameObject[] floatingTiles;
     public GameObject[] pathTiles;
     public GameObject[] itemProps;
+    public GameObject[] enemyProps;
+    public GameObject[] dungeonTiles;
+    public GameObject[] weatherLights;
+    public GameObject directionalLight;
+    public GameObject rainFX;
+
     public int minTiles = 7;
     public int maxTiles = 25;
+
+
 
     public enum TileTyp { Void, Water, Island, Pond, Gras, Hill, Mountain, Path, Special};
     //public TileTyp[,] tileTypMap;
@@ -56,21 +65,22 @@ public class LevelPlattformGenerator : MonoBehaviour
     public GameObject startProp;
     public GameObject placeHolderProp;
     public GameObject levelParent;
-    public GameObject dungeonTile;
+    public GameObject enemiesParent;
 
     private Tile startingTile;
+    private Tile finishTile;
 
     List<Tile> pathTilesList = new List<Tile>();
     List<Tile> islandTilesList = new List<Tile>();
 
-
+    
     public void Update()
     {
         if (genMap)
         {
             genMap = false;
             int seed = Random.Range(-100000, 100000);
-            Debug.Log("Seed: " + seed);
+            //Debug.Log("Seed: " + seed);
             tileHeightMap = mapGenerator.GetNoiseMap(seed);
             tileMap = new Tile[tileHeightMap.GetLength(0), tileHeightMap.GetLength(1)];
             CreateGround(tileHeightMap);
@@ -92,9 +102,11 @@ public class LevelPlattformGenerator : MonoBehaviour
             PlaceDungeon();
             CreateFloatingPlattforms();
             PlaceItems();
-            levelParent.transform.localScale *= 5;
-            navMeshSurface.BuildNavMesh();
+            levelParent.transform.localScale *= 5;          
+
+            StartCoroutine(GenNavMeshLate());
             SetPlayer();
+            GenWeather();
         }
         
         if (genProps)
@@ -126,24 +138,26 @@ public class LevelPlattformGenerator : MonoBehaviour
         {
             PlaceDungeon();
             genDungeon = false;
-        }
-
-
-        //if (delWater)
-        //{
-        //    DeleteWaterSoloTiles();
-        //    delWater = false;
-        //}
-        //if (genPath)
-        //{
-        //    CreatePath2();
-        //    genPath = false;
-        //}
-
-        //*TTTESTING***
-        //TestingNeighbors();
+        }        
     }
 
+    IEnumerator GenNavMeshLate()
+    {
+        yield return new WaitForSeconds(0.25f);
+        navMeshSurface.BuildNavMesh();
+        PlaceEnemies();
+    }
+
+    private void GenWeather()
+    {
+        rainFX.SetActive(false);
+        int w = Random.Range(0, weatherLights.Length);
+        GameObject weather = weatherLights[w];
+        Instantiate(weather, new Vector3(0, 3, 0), weather.transform.rotation);
+        Destroy(directionalLight);
+        if (w == 2) rainFX.SetActive(true);
+        else if(w == 1 & Random.value > 0.5f) rainFX.SetActive(true);
+    }
 
     private void SetPlayer()
     {
@@ -174,7 +188,8 @@ public class LevelPlattformGenerator : MonoBehaviour
                     }
                     else if (tileHeightMap[i, j] > pondHeightRegion)
                     {
-                        tileMap[i, j].tile = Instantiate(grasTiles[Random.Range(0, grasTiles.Length)], new Vector3(i * 4.33f, 0, (j * 5f) + offset), Quaternion.Euler(0, Random.Range(0, 6) * 60, 0), levelParent.transform);
+                        if(Random.value < 0.2f) tileMap[i, j].tile = Instantiate(specialgrasTiles[Random.Range(0, specialgrasTiles.Length)], new Vector3(i * 4.33f, 0, (j * 5f) + offset), Quaternion.Euler(0, Random.Range(0, 6) * 60, 0), levelParent.transform);
+                        else tileMap[i, j].tile = Instantiate(grasTiles[Random.Range(0, grasTiles.Length)], new Vector3(i * 4.33f, 0, (j * 5f) + offset), Quaternion.Euler(0, Random.Range(0, 6) * 60, 0), levelParent.transform);
                         tileMap[i, j].typ = TileTyp.Gras;
                     }
                     else if (tileHeightMap[i, j] > islandHeightRegion)
@@ -600,7 +615,7 @@ public class LevelPlattformGenerator : MonoBehaviour
 
         if (startpathTile.posX == endpathTile.posX && startpathTile.posY == endpathTile.posY)
         {
-            Debug.Log("Same TileSelected");
+            //Debug.Log("Same TileSelected");
             CreatePath2();
             return;
         }
@@ -775,7 +790,7 @@ public class LevelPlattformGenerator : MonoBehaviour
                 {
                     pos = tileMap[x, y].tile.transform.position;
                     Destroy(tileMap[x, y].tile);
-                    tileMap[x, y].tile = Instantiate(pathTiles[Random.Range(16, 20)], pos, Quaternion.Euler(0, 0, 0), levelParent.transform);
+                    tileMap[x, y].tile = Instantiate(pathTiles[Random.Range(16, pathTiles.Length)], pos, Quaternion.Euler(0, 0, 0), levelParent.transform);
                     tileMap[x, y].typ = TileTyp.Path;
 
                     if (startpathTile.posY > y) tileMap[x, y].tile.transform.Rotate(new Vector3(0, -120, 0));
@@ -1461,10 +1476,22 @@ public class LevelPlattformGenerator : MonoBehaviour
     {
         Tile farest = FindFarestTile(startingTile);
         Vector3 pos = tileMap[farest.posX, farest.posY].tile.transform.position;
-        GameObject dungeon = Instantiate(dungeonTile, pos, Quaternion.Euler(0, Random.Range(0, 6) * 60, 0), levelParent.transform);
+        GameObject dungeon = Instantiate(dungeonTiles[Random.Range(0,dungeonTiles.Length)], pos, Quaternion.Euler(0, Random.Range(0, 6) * 60, 0), levelParent.transform);
 
         Destroy(tileMap[farest.posX, farest.posY].tile);
-        tileMap[farest.posX, farest.posY] = new Tile(dungeon, TileTyp.Special, farest.posX, farest.posY, farest.distance);        
+        tileMap[farest.posX, farest.posY] = new Tile(dungeon, TileTyp.Special, farest.posX, farest.posY, farest.distance);
+        finishTile = tileMap[farest.posX, farest.posY];
+        Player.player.finishTile = finishTile;
+    }
+
+    public Tile GetFinishTile()
+    {
+        return finishTile;
+    }
+
+    public Tile GetStartingTile()
+    {
+        return startingTile;
     }
 
     bool tmp = true;
@@ -1560,6 +1587,34 @@ public class LevelPlattformGenerator : MonoBehaviour
                                 Destroy(placeHolder);
                             }
                         }                                               
+                    }
+                }
+            }
+        }
+    }
+
+
+    public void PlaceEnemies()
+    {
+        for (int i = 0; i < tileMap.GetLength(0); i++)
+        {
+            for (int j = 0; j < tileMap.GetLength(1); j++)
+            {
+                if (tileMap[i, j].typ == TileTyp.Gras)
+                {
+                    int rndEnemiesOnTile = Random.Range(0, 5);
+                    for (int n = 0; n < rndEnemiesOnTile; n++)
+                    {
+                        Vector3 pos = tileMap[i, j].tile.transform.position;
+                        Vector2 rndPos = Random.insideUnitCircle * 7.5f;
+                        Vector3 placePos = pos + new Vector3(rndPos.x, 0, rndPos.y);
+
+                        NavMeshHit hit;
+                        if (NavMesh.SamplePosition(placePos, out hit, 1.0f, NavMesh.AllAreas))
+                        {
+                            GameObject enemy = Instantiate(enemyProps[Random.Range(0, enemyProps.Length)], hit.position, Quaternion.identity, enemiesParent.transform);
+                            enemy.transform.localScale *= Random.Range(0.5f,1f);
+                        }
                     }
                 }
             }

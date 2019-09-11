@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 33932318536049148}
   - component: {fileID: 23441849306643970}
   - component: {fileID: 7506310116388554275}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: SM_Tile_Hex_Rock_Platform_01
   m_TagString: Untagged
   m_Icon: {fileID: 0}

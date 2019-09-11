@@ -10,7 +10,7 @@ public class ChestEnemyTrigger : Health
 
     [SerializeField] GameObject fragmentsFX;
     [SerializeField] GameObject smokeFX;
-    [SerializeField] int hitsBeforeDie = 1;
+    int hitsBeforeDie = 1;
 
     public GameObject rewardCoin;
 
@@ -37,10 +37,13 @@ public class ChestEnemyTrigger : Health
         rend.enabled = false;
         col.enabled = false;
         GameObject smoke = Instantiate(fragmentsFX, transform.position, Quaternion.identity);
+
+        SpawnReward();
         Destroy(smoke, 2f);
-        audioSource.pitch = Random.Range(0.75f, 1.25f);
-        audioSource.volume = Random.Range(0.85f, 1.15f);
-        audioSource.Play();
+
+        //audioSource.pitch = Random.Range(0.75f, 1.25f);
+        //audioSource.volume = Random.Range(0.85f, 1.15f);
+        //audioSource.Play();
 
         StartCoroutine(TriggerEnemies(enemyLevel, enemyAmount));
         //Destroy(gameObject, audioSource.clip.length);
@@ -60,13 +63,13 @@ public class ChestEnemyTrigger : Health
                 Die();
                 return;
             }
-            SpawnReward();
         }
     }
 
     private void SpawnReward()
     {
-        Instantiate(rewardCoin, transform.position, Quaternion.identity);
+        GameObject goldSack = Instantiate(rewardCoin, transform.position + new Vector3(0, 1.5f, 0), Quaternion.identity);
+        if (goldSack.GetComponent<CollectGold>()) goldSack.GetComponent<CollectGold>().SetGoldAmount(Random.Range(5, 25));
     }
 
     IEnumerator TriggerEnemies(int level, int amount)
@@ -75,7 +78,9 @@ public class ChestEnemyTrigger : Health
         {
             Vector2 rndPos = Random.insideUnitCircle * 5.5f;
             Vector3 pos = GameObject.FindGameObjectWithTag("Player").transform.position + new Vector3(rndPos.x, 0, rndPos.y);
-            Instantiate(smokeFX, pos, Quaternion.identity);
+            GameObject smoke = Instantiate(smokeFX, pos, Quaternion.identity);
+            smoke.transform.rotation = Quaternion.Euler(90, 0, 0);
+            Destroy(smoke, 2f);
             yield return new WaitForSeconds(0.2f);
             if (level == 1) Instantiate(lowEnemies[Random.Range(0, lowEnemies.Length)], pos, Quaternion.identity);
             else if (level == 2) Instantiate(mediumEnemies[Random.Range(0, mediumEnemies.Length)], pos, Quaternion.identity);

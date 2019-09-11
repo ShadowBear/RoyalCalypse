@@ -9,12 +9,13 @@ public class GUIManager : MonoBehaviour
     public Joystick movementJoystick;
     public Joystick rotationJoystick;
 
-    public GameObject menu;
+    public GameObject pauseMenu;
     public GameObject exitLoseMenu;
     public GameObject exitWinMenu;
     
     public Text killsText;
     public Text[] actualRaidGoldText;
+    public Text[] actualRaidGemText;
 
     public GameObject diedMenu;
 
@@ -30,14 +31,18 @@ public class GUIManager : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Escape)) MenuClicked();
+        if (Input.GetKeyDown(KeyCode.Escape)) PauseMenuClicked();
     }
 
     public void UpdateScore()
     {
         foreach (Text text in actualRaidGoldText)
         {
-            text.text = GameManager.gameManager.score.ToString();
+            text.text = GameManager.gameManager.acutalRaidGold.ToString();
+        }
+        foreach (Text text in actualRaidGemText)
+        {
+            text.text = GameManager.gameManager.acutalRaidGem.ToString();
         }
         killsText.text = GameManager.gameManager.kills.ToString();
     }
@@ -50,19 +55,20 @@ public class GUIManager : MonoBehaviour
         winState = false;
         loadBarScreen.SetActive(false);
         diedMenu.SetActive(false);
-        menu.SetActive(menuState);
+        pauseMenu.SetActive(menuState);
         exitLoseMenu.SetActive(exitState);
         exitWinMenu.SetActive(winState);
         UpdateScore();
+        Time.timeScale = 1;
     }
 
-    public void MenuClicked()
+    public void PauseMenuClicked()
     {
         if (died) return;
         menuState = menuState ? false : true;
         if (menuState) Time.timeScale = 0;
         else Time.timeScale = 1;
-        menu.SetActive(menuState);
+        pauseMenu.SetActive(menuState);
     }
 
     public void QuitButton()
@@ -95,23 +101,19 @@ public class GUIManager : MonoBehaviour
 
     public void NextIsland()
     {
-        Debug.Log("Next Island");
-    }
-
-    public void ExitIsland()
-    {
-        Debug.Log("Menu");
-    }
+        GameManager.gameManager.stageDepth++;
+        Time.timeScale = 0;        
+        loadBarScreen.SetActive(true);
+        StartCoroutine(LoadNextIsland());
+    }   
 
     public void Lost()
     {
         died = true;
-        int gold = (int)(GameManager.gameManager.acutalRaidGold * 0.8f);
-        GameManager.gameManager.acutalRaidGold = gold;
-        foreach (Text text in actualRaidGoldText)
-        {
-            text.text = gold.ToString();
-        }
+        GameManager.gameManager.acutalRaidGold = (int)(GameManager.gameManager.acutalRaidGold * 0.1f);
+        GameManager.gameManager.acutalRaidGem = 0;
+
+        UpdateScore();
         diedMenu.SetActive(true);
         Time.timeScale = 0;
     }
@@ -119,6 +121,7 @@ public class GUIManager : MonoBehaviour
     public void CancelHome()
     {
         GameManager.gameManager.acutalRaidGold = (int)(GameManager.gameManager.acutalRaidGold * 0.1f);
+        GameManager.gameManager.acutalRaidGem = 0;
         GameManager.gameManager.HomeCalled();
         loadBarScreen.SetActive(true);
         StartCoroutine(LoadHome());
@@ -134,9 +137,21 @@ public class GUIManager : MonoBehaviour
             loadBar.fillAmount = loadProgess;
             loadBarText.text = "Loading...." + ((int)(loadProgess * 100)).ToString() + "%";
             yield return null;
-        }
-        
+        }        
     }
+    IEnumerator LoadNextIsland()
+    {
+        float loadProgess = 0f;
+        AsyncOperation operation = SceneManager.LoadSceneAsync(1);
+        while (!operation.isDone)
+        {
+            loadProgess = Mathf.Clamp01(operation.progress / 0.9f);
+            loadBar.fillAmount = loadProgess;
+            loadBarText.text = "Loading...." + ((int)(loadProgess * 100)).ToString() + "%";
+            yield return null;
+        }
+    }
+
 
     public void BackHome()
     {

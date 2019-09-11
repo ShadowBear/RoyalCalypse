@@ -20,6 +20,10 @@ TagManager:
   - MenuItem
   - WeaponSlot1
   - WeaponSlot2
+  - MenuManager
+  - AITrigger
+  - WeaponItemParent
+  - MenuCanvas
   layers:
   - Default
   - TransparentFX
@@ -35,7 +39,7 @@ TagManager:
   - Obstacle
   - MiniMapIcon
   - EnemyAI
-  - 
+  - Ground
   - 
   - 
   - 

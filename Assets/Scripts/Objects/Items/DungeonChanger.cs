@@ -10,7 +10,7 @@ public class DungeonChanger : MonoBehaviour
 
     private void Start()
     {
-        guiManager = GameManager.gameManager.GetComponent<GUIManager>();
+        guiManager = GameObject.FindGameObjectWithTag("Canvas").GetComponent<GUIManager>();
 
     }
 
@@ -18,8 +18,9 @@ public class DungeonChanger : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
+            guiManager.UpdateScore();
             if (GameManager.gameManager.stageClear) guiManager.ExitIslandWinMenu();
-            else guiManager.ExitIslandMenu();
+            //else guiManager.ExitIslandMenu();
         }        
     }
 

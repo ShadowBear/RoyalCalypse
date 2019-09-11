@@ -148,9 +148,10 @@ MonoBehaviour:
     type: 3}
   smokeFX: {fileID: 1103121671024242, guid: 32b679ac2fa27cb4f921a45940ac0e7c, type: 3}
   hitsBeforeDie: 3
-  rewardCoin: {fileID: 158936, guid: 9efc28a4164868a45b28c1e4e208e10b, type: 3}
+  rewardCoin: {fileID: 5991026507663728346, guid: 1abe7a4efbc8a144da4d4f0a97f99cbc,
+    type: 3}
   enemyLevel: 1
-  enemyAmount: 3
+  enemyAmount: 1
 --- !u!82 &8234077160958557780
 AudioSource:
   m_ObjectHideFlags: 0

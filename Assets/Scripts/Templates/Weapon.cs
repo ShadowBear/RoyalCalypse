@@ -11,6 +11,7 @@ public class Weapon : MonoBehaviour
     public int damage;
     public int damageVarianz;
     public float fireRate;
+    
     public float projectileSpeed;
     public float dmgRadius;
     [SerializeField]private int maxAmmu;
@@ -32,6 +33,8 @@ public class Weapon : MonoBehaviour
     private Text ammuText;
     private GameObject guiCanvas;
 
+    public float reloadTime = 3f;
+
     protected virtual void Start()
     {
         if (guiCanvas != null) return;
@@ -40,24 +43,32 @@ public class Weapon : MonoBehaviour
         canAttack = true;
         gunPoint = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>().gunPoint;
         guiCanvas = GameObject.FindGameObjectWithTag("Canvas");
+    }
 
-        //foreach (WeaponButton w in guiCanvas.GetComponentsInChildren<WeaponButton>())
-        //{
-        //    if (w.GetStatus()) ammuText = w.GetComponentInChildren<Text>();
-        //}
-        //ammuText.text = ammuAmount.ToString();
-        //Player.player.equipedWeaponText.text = ammuAmount.ToString();
+    private void OnEnable()
+    {
+        canAttack = true;
     }
 
     protected virtual void Update()
     {
         if (autoFire) Attack();
+        if (ammuAmount <= 0 && canAttack) StartCoroutine(Reload());
     }
 
     public virtual void Attack()
     {
         if (ammuAmount > 0 && canAttack && ((autoFire && attacking) || !autoFire)) StartCoroutine(Shot());
+    }
 
+    protected virtual IEnumerator Reload()
+    {
+        canAttack = false;
+        yield return new WaitForSeconds(reloadTime);
+        ammuAmount = reloadAmount;
+        UpdateAmmuGUI();
+        canAttack = true;
+        yield return null;
     }
 
     protected virtual IEnumerator Shot()
@@ -97,18 +108,16 @@ public class Weapon : MonoBehaviour
 
     public void UpdateAmmuGUI()
     {
-        //foreach (WeaponButton w in guiCanvas.GetComponentsInChildren<WeaponButton>())
-        //{
-        //    if (w.GetStatus()) ammuText = w.GetComponentInChildren<Text>();
-        //}
-        //ammuText.text = ammuAmount.ToString();
-        Player.player.equipedWeaponText.text = ammuAmount.ToString();
+        if(ammuAmount == 0) Player.player.equipedWeaponText.text = "R";
+        else Player.player.equipedWeaponText.text = ammuAmount.ToString();
+        
     }
 
     public void UpdateStartAmmuGUI()
     {
         ammuAmount = startAmmu;
         Player.player.equipedWeaponText.text = ammuAmount.ToString();
+        Player.player.secondWeaponText.text = Player.player.secondWeapon.GetComponent<Weapon>().maxAmmu.ToString();
     }
 
 

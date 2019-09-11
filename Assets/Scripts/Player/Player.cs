@@ -23,7 +23,7 @@ public class Player : MonoBehaviour
 
     public GameObject equipedWeapon;
     [SerializeField] Weapon equipedWeaponScript;
-    [SerializeField] private GameObject secondWeapon;
+    public GameObject secondWeapon;
     private Image firstWeaponImage;
     private Image secondWeaponImage;
     [HideInInspector]public Text secondWeaponText;
@@ -37,8 +37,8 @@ public class Player : MonoBehaviour
 
     void Start()
     {
-        movementJoystick = GameManager.gameManager.GetComponent<GUIManager>().movementJoystick;
-        rotationJoystick = GameManager.gameManager.GetComponent<GUIManager>().rotationJoystick;
+        movementJoystick = GetComponentInChildren<GUIManager>().movementJoystick;
+        rotationJoystick = GetComponentInChildren<GUIManager>().rotationJoystick;
         playerRigidbody = GetComponent<Rigidbody>();
         anim = GetComponent<Animator>();
         arming = false;
@@ -50,6 +50,8 @@ public class Player : MonoBehaviour
         secondWeaponImage.sprite = secondWeapon.GetComponent<Weapon>().guiImageWeapon;
         equipedWeaponText = GameObject.FindGameObjectWithTag("WeaponSlot1").transform.GetChild(1).GetComponent<Text>();
         secondWeaponText = GameObject.FindGameObjectWithTag("WeaponSlot2").transform.GetChild(1).GetComponent<Text>();
+        equipedWeaponScript.UpdateStartAmmuGUI();
+        SwapWeapon(GameManager.gameManager.firstWeaponID);
     }
 
     // Update is called once per frame
@@ -121,7 +123,6 @@ public class Player : MonoBehaviour
         }else secondWeaponImage.sprite = equipedWeaponScript.guiImageWeapon;
 
         equipedWeapon.SetActive(true);
-        equipedWeaponScript.UpdateStartAmmuGUI();
     }
 
     public void SwapToSecondWeapon()
@@ -259,6 +260,33 @@ public class Player : MonoBehaviour
         
         return 0;
     }
+
+    bool canShowWay = true;
+    public GameObject directionFX;
+    public LevelPlattformGenerator.Tile finishTile;
+
+    public void ShowFinishDirection()
+    {
+        //Debug.Log("Zeige Richtung");
+        
+        if (canShowWay) StartCoroutine(WayDirection());
+
+    }
+
+    IEnumerator WayDirection()
+    {
+        canShowWay = false;
+        GameObject directionPointer = Instantiate(directionFX, transform.position + new Vector3(0, 2, 0), Quaternion.identity);
+        directionPointer.transform.LookAt(finishTile.tile.transform.position);
+        directionPointer.transform.localScale *= 2;
+        Destroy(directionPointer, 2f);
+        yield return new WaitForSeconds(3f);
+        canShowWay = true;
+
+        yield return null;
+    }
+
+
 }
 
 /** 

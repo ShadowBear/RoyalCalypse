@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 33657037038831074}
   - component: {fileID: 23978525470816044}
   - component: {fileID: 6693601776834202186}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: SM_Tile_Hex_River_05
   m_TagString: Untagged
   m_Icon: {fileID: 0}

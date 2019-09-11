@@ -41,13 +41,12 @@ public abstract class EnemyAI : MonoBehaviour
 
     public enum EnemyState { Patrol, Guard, Search, Fight, Attack, Follow, SummonHelp, Rescue, Run}
     [SerializeField] protected EnemyState currentState;
-    //[SerializeField] private EnemyState previousState;
-    //[SerializeField] private EnemyState lastState;
+    public enum AggressivState { Peaceful, Normal, Aggressiv };
+    [SerializeField]protected AggressivState agressivStatus = AggressivState.Normal;
 
     // Start is called before the first frame update
     protected virtual void Start()
     {
-        //player = GameObject.FindGameObjectWithTag("Player");
         player = Player.player.gameObject;
         navMeshAgent = GetComponent<NavMeshAgent>();
 
@@ -105,12 +104,14 @@ public abstract class EnemyAI : MonoBehaviour
             default: Guard();
                 break;
         }
-
-        if((currentState == EnemyState.Guard || currentState == EnemyState.Patrol
-            || currentState == EnemyState.Search || currentState == EnemyState.Rescue) && fieldOfView.GetVisible())
+        if(agressivStatus != AggressivState.Peaceful)
         {
-            currentState = EnemyState.Fight;
-        }
+            if ((currentState == EnemyState.Guard || currentState == EnemyState.Patrol
+                        || currentState == EnemyState.Search || currentState == EnemyState.Rescue) && fieldOfView.GetVisible())
+            {
+                currentState = EnemyState.Fight;
+            }
+        }        
         Animation();    
     }
 
@@ -123,7 +124,6 @@ public abstract class EnemyAI : MonoBehaviour
             {
                 currentState = EnemyState.Guard;
                 guardingTime = Random.Range(minGuardingTime, maxGuardingTime);
-                //Debug.Log("GuardingTime: " + guardingTime);
                 lastPatrolPoint = currentPatrolPoint;
                 currentPatrolPoint = (currentPatrolPoint + 1) % patrolPoints.Length;
                 navMeshAgent.SetDestination(patrolPoints[currentPatrolPoint].position);
@@ -148,12 +148,6 @@ public abstract class EnemyAI : MonoBehaviour
         {
             if (currentState == EnemyState.Guard) guardingTime -= Time.deltaTime;
             if (guardingTime <= 0) currentState = EnemyState.Patrol;
-            //transform.rotation = Quaternion.Slerp(transform.rotation, patrolPoints[currentPatrolPoint].rotation, Time.deltaTime * 5f);
-        }
-        else
-        {
-            //transform.rotation = Quaternion.Slerp(transform.rotation, startRotation, Time.deltaTime * 5f);
-            
         }
         if (!lookingAround) StartCoroutine(LookAroundOnGuarding());
         transform.rotation = Quaternion.Slerp(transform.rotation, rotation, Time.deltaTime * .5f);
@@ -231,16 +225,14 @@ public abstract class EnemyAI : MonoBehaviour
     public void HelpMe(Vector3 helpPosition)
     {
         helpNeededPosition = helpPosition;
-        //currentState = EnemyState.Rescue;
         if(currentState == EnemyState.Guard || currentState == EnemyState.Patrol) currentState = EnemyState.Fight;
-        //Debug.Log("Hilfe angekommen!");
     }
     
 
     protected IEnumerator UpdatePlayerPos()
     {
         followUpdater = false;
-        navMeshAgent.SetDestination(player.transform.position);
+        if(gameObject.activeSelf) navMeshAgent.SetDestination(player.transform.position);
         yield return new WaitForSeconds(0.2f);
         followUpdater = true;
     }

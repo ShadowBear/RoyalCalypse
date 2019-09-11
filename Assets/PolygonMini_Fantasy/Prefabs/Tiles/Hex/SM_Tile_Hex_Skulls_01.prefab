@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 33425608509381628}
   - component: {fileID: 23068427280670716}
   - component: {fileID: 1814920665208672912}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: SM_Tile_Hex_Skulls_01
   m_TagString: Untagged
   m_Icon: {fileID: 0}

@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 4294150394858879745}
   - component: {fileID: 6900068032361841141}
   - component: {fileID: 1479730468322441692}
+  - component: {fileID: 5400383752753715039}
   m_Layer: 0
   m_Name: SM_Env_Generic_Tree_06
   m_TagString: Destructible
@@ -211,3 +212,22 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!95 &5400383752753715039
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1069362970906124}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 2230818f1a9417f46880a065b5296228, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0

@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 33884287130473452}
   - component: {fileID: 23279981722236020}
   - component: {fileID: 5088324791095090468}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: SM_Tile_Hex_Mountain_06
   m_TagString: GroundTile
   m_Icon: {fileID: 0}

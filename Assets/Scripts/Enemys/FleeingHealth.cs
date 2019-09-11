@@ -6,9 +6,11 @@ using UnityEngine.AI;
 public class FleeingHealth : Health
 {
     FleeingAI fleeingAI;
-    public int score = 5;
+    public int score = 1;
+    public int exp = 5;
     private Animator anim;
     private NavMeshAgent navMeshAgent;
+    public GameObject dropParent;
 
     protected override void Start()
     {
@@ -31,7 +33,13 @@ public class FleeingHealth : Health
         navMeshAgent.isStopped = true;
         if (score >= 0) GameManager.gameManager.AddScore(score);
         if (anim) anim.SetTrigger("Die");
-        if (transform.parent != null) Destroy(transform.parent.gameObject, 3.9f);
-        else Destroy(gameObject, 3.9f);
+        //if (transform.parent != null) Destroy(transform.parent.gameObject, 3.9f);
+        Destroy(gameObject, 3f);
+        if (dropParent != null)
+        {
+            GameObject drop = Instantiate(dropParent, transform.position, Quaternion.identity);
+            drop.GetComponent<DropItem>().DropItemObject(3f);
+            drop.GetComponent<DropItem>().SetExp(exp);
+        }
     }
 }

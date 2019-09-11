@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 1834591270066582398}
   - component: {fileID: 7778343710364963934}
   - component: {fileID: 1738596729735873847}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: SM_Tile_Hex_Flat_Wood_04
   m_TagString: GroundTile
   m_Icon: {fileID: 0}

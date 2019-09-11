@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 33967008622160616}
   - component: {fileID: 23813277526148584}
   - component: {fileID: 3545848664879023054}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: SM_Tile_Hex_Column_Water_03
   m_TagString: Untagged
   m_Icon: {fileID: 0}

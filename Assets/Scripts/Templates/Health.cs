@@ -11,8 +11,6 @@ public abstract class Health : MonoBehaviour
     [SerializeField] protected int health;
     [SerializeField] protected int shield;
 
-    //[SerializeField] protected Image healthbar;
-    //[SerializeField] protected Image shieldbar;
     protected Slider healthbarSlider;
     protected Slider shieldbarSlider;
 
@@ -26,8 +24,6 @@ public abstract class Health : MonoBehaviour
             if (t.name == "SkillGuageHealth") healthbarSlider = t.GetComponentInChildren<Slider>();
             else if(t.name == "SkillGuageShield") shieldbarSlider = t.GetComponentInChildren<Slider>();
         }
-        //healthbarSlider = transform.Find("SkillGuageHealth").GetComponentInChildren<Slider>();
-        //shieldbarSlider = transform.Find("SkillGuageShield").GetComponentInChildren<Slider>();
         UpdateFillamount();
         shield = 0;
     }
@@ -54,9 +50,7 @@ public abstract class Health : MonoBehaviour
     protected void UpdateFillamount()
     {
         if(healthbarSlider != null)healthbarSlider.value = (float)health / maxHealth;
-        //else healthbar.fillAmount = (float)health / maxHealth;
         if(shieldbarSlider != null) shieldbarSlider.value = (float)shield / maxShield;
-        //else shieldbar.fillAmount = (float)shield / maxShield;
     }
 
     public virtual bool AddHealth(int health)

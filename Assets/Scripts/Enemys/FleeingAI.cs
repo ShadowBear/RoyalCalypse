@@ -9,14 +9,14 @@ public class FleeingAI : MonoBehaviour
 
     public enum State {Hide, Flee };
     [SerializeField] State currentState;
-    private bool runningAway = false;
-    private bool hiding = false;
-    private NavMeshAgent agent;
+    protected bool runningAway = false;
+    protected bool hiding = false;
+    protected NavMeshAgent agent;
     [SerializeField] float fleeRadius = 8f;
-    private Animator anim;
-    private bool alive = true;
+    protected Animator anim;
+    protected bool alive = true;
 
-    void Start()
+    protected void Start()
     {
         agent = GetComponent<NavMeshAgent>();
         anim = GetComponent<Animator>();
@@ -25,7 +25,7 @@ public class FleeingAI : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    protected void Update()
     {
         if (!alive) return;
         if (currentState == State.Flee)
@@ -43,7 +43,7 @@ public class FleeingAI : MonoBehaviour
         Animation();
     }
 
-    void RunAway()
+    protected void RunAway()
     {
         runningAway = true;
         hiding = false;
@@ -56,7 +56,7 @@ public class FleeingAI : MonoBehaviour
         agent.isStopped = false;
     }
 
-    void Hide()
+    protected void Hide()
     {
         hiding = true;
         runningAway = false;
